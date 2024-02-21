@@ -1,30 +1,11 @@
 # Changelog
-
-Más información sobre cómo rellenar el fichero en https://keepachangelog.com/es-ES/1.0.0/
-
-## [0.1] - 2024-01-30
+## [0.1] - 2024-02-15
 
 ### Added
+- Creación de la estructura de la página elige suscripción [Juan Manuel Arriaza Rey]
+- Creación de la estructura de la página buscaClases [Juan Manuel Arriaza Rey]
+- Creación de la estructura de la página formulario inscripción [Juan Manuel Arriaza Rey]
 
-- Página de inicio ``index.html`` (María López)
-- Imágenes y hojas de estilo (Manuel García)
-
+## [0.2] - 2024-02-16
 ### Changed
-
-- Añadidos estilos a página de inicio (Manuel García)
-
-## [0.2] - 2024-02-15
-
-### Added
-
-- Registro de clientes (María López)
-
-### Fixed
-
-- Corregido error en estilos de página de inicio ([#01](https://github.com/...)) (María López)
-
-### Removed
-
-- Eliminadas imágenes no utilizadas en carpeta ``images``(María López)
-
-
+- Modificación del footer de las páginas elige suscripción, formulario inscripción y busca clases [Juan Manuel Arriaza Rey]
