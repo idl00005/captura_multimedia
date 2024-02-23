@@ -16,5 +16,7 @@
 - Añadido boostrap y modificada la página de búsqueda de clases [Juan Manuel Arriaza Rey]
 
 ### Added
--Imagen de fondo para el apartado de inscripción de la página principal [Ignacio Delgado Lobelle]
--Imagen de fondo para el apartado de clases de la página principal [Ignacio Delgado Lobelle] 
+- Imagen de fondo para el apartado de inscripción de la página principal [Ignacio Delgado Lobelle]
+- Imagen de fondo para el apartado de clases de la página principal [Ignacio Delgado Lobelle] 
+- Página cuenta, que muestra los datos de usuario, la duración de su membresía y permite actualizar algunos de los 
+  campos. [Ignacio Delgado Lobelle]
