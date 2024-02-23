@@ -20,17 +20,16 @@ de la web del Gimnasio Power FIT.
 
 
 ## Entidad relación del proyecto
-![](./storyboard/entidad_relacion.png)
-
+![](./storyboard/entidad-relacion.png)
 ## StoryBoard
 - Página de inicio
-![](./storyboard/Pagina_inicio.jpg)
+  ![](./storyboard/Pagina_inicio.jpeg)
 - Página de login
-![](./storyboard/login.jpeg)
+  ![](./storyboard/login.jpeg)
 - Elección de suscripción
 ![](./storyboard/elegir_suscripción.jpg)
 - Formulario de inscripción
-![](./storyboard/formulario_inscripción.jpeg)
+  ![](./storyboard/formulario_inscripción.jpg)
 - Buscador de clases
 ![](./storyboard/Busca_Clases.jpg)
 
