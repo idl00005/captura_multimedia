@@ -1,7 +1,9 @@
 # PowerFIT - Fitness Center
 
-Diseño de las estructuras de las páginas buscaClases, eligeSuscripción y formulario de inscripción 
-de la web del Gimnasio Power FIT.
+PowerFIT es un gimnasio que cuenta con una aplicación web. Esta aplicación permite a sus usuarios inscribirse y 
+iniciar sesión. Una vez iniciada sesión permite consultar las clases disponibles y sus horaios, así como reservar
+una plaza en las mismas. Además, a la hora de inscribirse permite al usuario elegir la suscripción que más se ajuste
+a sus necesidades entre tres tipos de subscripciones.
 
 ## Historias de usuario:
 - El usuario podrá buscar clases de forma sencilla y rápida [Juan Manuel Arriaza Rey]
@@ -20,6 +22,12 @@ de la web del Gimnasio Power FIT.
 
 
 ## Entidad relación del proyecto
+
+- Usuario, representa a los usuarios de la aplicación. [Juan Manuel Arriaza Rey]
+- Actividad, representa cada una de las clases a reservar. [Ignacio Delgado Lobelle, Juan Manuel Arriaza Rey]
+- Membresía, representa los tipos de suscripción que puede elegir el usuario. [Ignacio Delgado Lobelle, Juan Manuel 
+Arriaza Rey]
+
 ![](./storyboard/entidad-relacion.png)
 ## StoryBoard
 - Página de inicio
