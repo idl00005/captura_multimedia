@@ -1,0 +1,15 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Usuario
+  Date: 05/03/2024
+  Time: 12:16
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitnesspark</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
