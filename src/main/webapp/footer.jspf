@@ -1,13 +1,5 @@
-<!--
-  Created by IntelliJ IDEA.
-  User: Usuario
-  Date: 05/03/2024
-  Time: 12:23
-  To change this template use File | Settings | File Templates.
--->
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
-    <html>
-    <head><title>Title</title></head>
-    <body></body>
-    </html>
-</jsp:root>
+<footer>
+    <p>© 2022 Mi sitio web</p>
+</footer>
+</body>
+</html>
