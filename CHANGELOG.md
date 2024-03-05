@@ -2,11 +2,11 @@
 ## [0.2] - 2024-02-16
 ### Changed
 - Modificación del footer de las páginas elige suscripción, formulario inscripción y busca clases [Juan Manuel Arriaza Rey]
-- Añadido boostrap y modificada la página principal [Ignacio Delgado Lobelle]
-- Añadido boostrap y modificada la página de login [Ignacio Delgado Lobelle]
-- Añadido boostrap y modificada la página de inscripción [Juan Manuel Arriaza Rey]
-- Añadido boostrap y modificada la página de elección de suscripción [Juan Manuel Arriaza Rey]
-- Añadido boostrap y modificada la página de búsqueda de clases [Juan Manuel Arriaza Rey]
+- Modificación con boostrap de la página principal [Ignacio Delgado Lobelle]
+- Modificación con boostrap de la página de login [Ignacio Delgado Lobelle]
+- Modificación con boostrap de la página de inscripción [Juan Manuel Arriaza Rey]
+- Modificación con boostrap de la página de elección de suscripción [Juan Manuel Arriaza Rey]
+- Modificación con boostrap de la página de búsqueda de clases [Juan Manuel Arriaza Rey]
 
 ### Added
 - Imagen de fondo para el apartado de inscripción de la página principal [Ignacio Delgado Lobelle]

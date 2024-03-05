@@ -1,7 +1,7 @@
 # PowerFIT - Fitness Center
 
 PowerFIT es un gimnasio que cuenta con una aplicación web. Esta aplicación permite a sus usuarios inscribirse y 
-iniciar sesión. Una vez iniciada sesión permite consultar las clases disponibles y sus horaios, así como reservar
+iniciar sesión. Una vez iniciada sesión permite consultar las clases disponibles y sus horarios, así como reservar
 una plaza en las mismas. Además, a la hora de inscribirse permite al usuario elegir la suscripción que más se ajuste
 a sus necesidades entre tres tipos de subscripciones.
 
@@ -31,13 +31,13 @@ Arriaza Rey]
 ![](./storyboard/entidad-relacion.png)
 ## StoryBoard
 - Página de inicio
-  ![](./storyboard/Pagina_inicio.jpeg)
+  ![](./storyboard/Pagina_inicio.jpg)
 - Página de login
   ![](./storyboard/login.jpeg)
 - Elección de suscripción
-![](./storyboard/elegir_suscripción.jpg)
+![](./storyboard/elegir_suscripcion.jpg)
 - Formulario de inscripción
-  ![](./storyboard/formulario_inscripción.jpg)
+  ![](./storyboard/formulario_inscripcion.jpeg)
 - Buscador de clases
 ![](./storyboard/Busca_Clases.jpg)
 
