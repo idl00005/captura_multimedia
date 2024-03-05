@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,23 +10,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
+<%@ include file="header.jspf" %>
+
+
 
 <body>
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom text-center align-items-center" style="background-color: #4d5962">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <img class="bi me-2" src="./img/logoblack.png" alt="" width="250" height="80">
-    </a>
-
-    <ul class="nav nav-pills">
-        <li class="nav-item text-white"><a href="./index.html" class="nav-link text-white" aria-current="page">Inicio</a></li>
-        <li class="nav-item text-white"><a href="./buscaClases.html" class="btn btn-light" >Consultar clases</a></li>
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white">Contacto</a></li>
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white"></a></li>
-       <!-- <li class="nav-item text-white"><a href="#" class="btn btn-warning" style="margin-right: 20px">Inscríbete</a></li> -->
-
-    </ul>
-</header>
-
 
 <div class="px-4 py-5 my-0 text-center">
     <h1 class="display-5 fw-bold text-body-emphasis">Nuestras clases</h1>
@@ -87,19 +78,6 @@
 
 
 
-<div class="p-3">
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top align-items-center">
-    <p class="col-md-4 mb-0 text-body-secondary align-items-center">© 2024 PowerFit - Fitness Center, Inc</p>
-
-
-
-
-    <ul class="nav col-md-1 justify-content-end">
-        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img class="bi me-0" src="./img/logoblack.png" alt="" width="250" height="80">
-        </a>
-    </ul>
-</footer>
-    </div>
+<%@ include file="footer.jspf" %>
 </body>
 </html>

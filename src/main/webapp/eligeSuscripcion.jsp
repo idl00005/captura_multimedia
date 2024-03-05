@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,20 +11,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom text-center align-items-center" style="background-color: #4d5962">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <img class="bi me-2" src="./img/logoblack.png" alt="" width="250" height="80">
-    </a>
 
-    <ul class="nav nav-pills">
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white" aria-current="page">Inicio</a></li>
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white" >Consultar clases</a></li>
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white">Cuenta</a></li>
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white"></a></li>
-        <li class="nav-item text-white"><a href="#" class="btn btn-warning" style="margin-right: 20px">INSCRÍBETE</a></li>
-
-    </ul>
-</header>
+<%@ include file="header.jspf" %>
 
 <div class="px-4 py-5 text-center">
     <h1 class="display-5 fw-bold text-body-emphasis">Elige tu suscripción</h1>
@@ -58,7 +49,7 @@
                 </ul>
                 <h2 class="text-center text-warning fw-bold text-decoration-underline">30€/mes</h2>
 
-                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="./formularioInscripcion.html">Elegir esta oferta!</a>
+                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="formularioInscripcion.jsp">Elegir esta oferta!</a>
             </div>
         </div>
     </div>
@@ -88,7 +79,7 @@
                     </li>
                 </ul>
                 <h2 class="text-center text-warning fw-bold text-decoration-underline">37€/mes</h2>
-                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="./formularioInscripcion.html">Elegir esta oferta!</a>
+                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="formularioInscripcion.jsp">Elegir esta oferta!</a>
             </div>
         </div>
     </div>
@@ -119,26 +110,14 @@
                     </li>
                 </ul>
                 <h2 class="text-center text-warning fw-bold text-decoration-underline">42€/mes</h2>
-                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="./formularioInscripcion.html">Elegir esta oferta!</a>
+                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="formularioInscripcion.jsp">Elegir esta oferta!</a>
             </div>
         </div>
     </div>
 
 
 </div>
-<div class="p-3">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top align-items-center">
-        <p class="col-md-4 mb-0 text-body-secondary align-items-center">© 2024 PowerFit - Fitness Center, Inc</p>
+<%@ include file="footer.jspf" %>
 
-
-
-
-        <ul class="nav col-md-1 justify-content-end">
-            <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <img class="bi me-0" src="./img/logoblack.png" alt="" width="250" height="80">
-            </a>
-        </ul>
-    </footer>
-</div>
 </body>
 </html>

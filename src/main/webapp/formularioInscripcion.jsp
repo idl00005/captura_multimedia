@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -65,20 +66,8 @@
 </div>
 
 
-<div class="p-3">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top align-items-center">
-        <p class="col-md-4 mb-0 text-body-secondary align-items-center">© 2024 PowerFit - Fitness Center, Inc</p>
-
-
-
-
-        <ul class="nav col-md-1 justify-content-end">
-            <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <img class="bi me-0" src="./img/logoblack.png" alt="" width="250" height="80">
-            </a>
-        </ul>
-    </footer>
-</div>
 
 </body>
 </html>
+
+<%@ include file="footer.jspf" %>

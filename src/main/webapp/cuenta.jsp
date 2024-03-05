@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,19 +16,8 @@
     </style>
 </head>
 <body>
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom text-center align-items-center" style="background-color: #4d5962">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <img class="bi me-2" src="./img/logoblack.png" alt="" width="250" height="80">
-    </a>
+<%@ include file="header.jspf" %>
 
-    <ul class="nav nav-pills">
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white" aria-current="page">Inicio</a></li>
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white" >Consultar clases</a></li>
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white">Cuenta</a></li>
-        <li class="nav-item text-white"><a href="#" class="nav-link text-white"></a></li>
-        <li class="nav-item text-white"><a href="#" class="btn btn-warning" style="margin-right: 20px">INSCRÍBETE</a></li>
-    </ul>
-</header>
 <div class="container">
     <h2>Perfil de Usuario</h2>
     <form>
@@ -66,16 +58,8 @@
     <hr>
     <p><strong>Duración de la membresía:</strong> 1 año</p>
 </div>
-<div class="p-3">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top align-items-center">
-        <p class="col-md-4 mb-0 text-body-secondary align-items-center">© 2024 PowerFit - Fitness Center, Inc</p>
-        <ul class="nav col-md-1 justify-content-end">
-            <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <img class="bi me-0" src="./img/logoblack.png" alt="" width="250" height="80">
-            </a>
-        </ul>
-    </footer>
-</div>
+<%@ include file="footer.jspf" %>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
