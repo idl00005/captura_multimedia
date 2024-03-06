@@ -3,7 +3,7 @@ package com.example.g116;
 import java.util.ArrayList;
 
 public class UsuariosRegistrados {
-    ArrayList<User> usuarios = new ArrayList<User>();
+    ArrayList<User> usuarios = new ArrayList<>();
     void anadir_Usuario(User usuario){
         usuarios.add(usuario);
     }
