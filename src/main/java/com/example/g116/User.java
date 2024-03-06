@@ -32,4 +32,15 @@ public class User {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public String getNombre_usuario() {
+        return nombre_usuario;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getClave() {
+        return clave;
+    }
 }

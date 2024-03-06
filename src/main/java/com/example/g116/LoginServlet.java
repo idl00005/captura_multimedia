@@ -20,13 +20,16 @@ public class LoginServlet extends HttpServlet {
         String identifier = request.getParameter("identifier");
         String password = request.getParameter("password");
 
-        // Supongamos que tienes un método checkCredentials que verifica las credenciales del usuario
-        User user = checkCredentials(identifier, password);
+        // Obtén el objeto UsuariosRegistrados
+        UsuariosRegistrados usuarios = AppConfig.getInstance().getUsuariosRegistrados();
 
-        if (user != null) {
+        // Ahora puedes usar el objeto usuarios para verificar las credenciales
+        Boolean comprobacion = usuarios.comprobar_Usuario_Registrado(identifier, password);
+
+        if (comprobacion) {
             // Si las credenciales son correctas, establece un atributo en la sesión y redirige al usuario
             HttpSession session = request.getSession();
-            session.setAttribute("loggedInUser", user);
+            session.setAttribute("loggedInUser", identifier);
             response.sendRedirect("index.jsp");
         } else {
             // Si las credenciales no son correctas, envía un mensaje de error
@@ -36,9 +39,4 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    private User checkCredentials(String identifier, String password) {
-        // Aquí deberías verificar las credenciales del usuario
-        // Por ahora, este método solo devuelve null
-        return null;
-    }
 }
