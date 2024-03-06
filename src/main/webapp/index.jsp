@@ -26,8 +26,8 @@
         .btn-limited-width {
             margin-top: 230px;
             font-weight: bold;
-            width: 350px !important;
-            max-height: 50px !important;
+            width: 390px !important;
+            max-height: 40px !important;
         }
         ul {
             list-style-type: none;
@@ -51,14 +51,14 @@
                 <li><h3 class="note">Zona de cardio</h3></li>
             </ul>
         </div>
-        <button type="button" class="btn btn-warning btn-lg px-4 gap-3 btn-limited-width">INSCRÍBETE</button>
+        <a href="eligeSuscripcion.jsp" class="btn btn-warning btn-limited-width" >INSCRÍBETE</a>
     </div>
 </div>
 
 <div class="Fondo imagenFondo2 px-4 py-5">
 
     <div class="col-lg-6 mx-auto d-flex ">
-        <button type="button" class="btn btn-warning btn-lg px-4 gap-3 btn-limited-width">CONSULTAR CLASES</button>
+        <a href="eligeSuscripcion.jsp" class="btn btn-warning btn-limited-width" >CONSULTAR CLASES</a>
         <div>
             <ul class="lista-derecha">
                 <li><h1 class="display-5 fw-bold text-body-emphasis">8 CLASES DIRIGIDAS DISTINTAS</h1></li>

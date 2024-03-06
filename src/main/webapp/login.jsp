@@ -23,21 +23,6 @@
       text-align: center;
     }
 
-    .logo {
-      max-width: 300px;
-      margin-top: -50px;
-      margin-bottom: -50px;
-    }
-
-    #login-form {
-      width: 300px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
     #login-form input[type="text"],
     #login-form input[type="password"] {
       width: 100%;
