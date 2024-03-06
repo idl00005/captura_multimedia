@@ -20,7 +20,7 @@
     <div class="d-flex justify-content-center align-items-center">
         <img src="./img/logoblack.png" alt="Inscripción" class="text-aling-center align-items-center" width="250" height="80">
         </div>
-        <form action="#" method="post">
+        <form action="validacion.jsp" method="post">
             <fieldset>
                 <legend>Rellena tus datos personales</legend>
                 <label class="form-label" for="nombre">Nombre:</label>
