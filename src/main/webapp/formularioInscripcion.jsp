@@ -20,20 +20,22 @@
     <div class="d-flex justify-content-center align-items-center">
         <img src="./img/logoblack.png" alt="Inscripción" class="text-aling-center align-items-center" width="250" height="80">
         </div>
-        <form action="validacion.jsp" method="post">
+        <form method="POST" action="inscripcion" >
             <fieldset>
                 <legend>Rellena tus datos personales</legend>
                 <label class="form-label" for="nombre">Nombre:</label>
-                <input class="form-control" type="text" id="nombre" name="nombre" required>
+                <input class="form-control" type="text" id="nombre" name="nombre">
 
                 <label class="form-label" for="apellidos">Apellidos:</label>
                 <input class="form-control" type="text" id="apellidos" name="apellidos" required>
 
                 <label class="form-label" for="dni">DNI:</label>
-                <input class="form-control" type="text" id="dni" name="dni" required>
+                <input class="form-control" type="text" id="dni" name="dni" value="${dni}"required>
+                <div style="color: red">${errores['dni']}</div>
 
                 <label class="form-label" for="telefono">Teléfono:</label>
                 <input class="form-control" type="tel" id="telefono" name="telefono" required>
+                <div style="color: red">${errores['telefono']}</div>
 
                 <label class="form-label" for="fechaNacimiento">Fecha de Nacimiento:</label>
                 <input class="form-control" type="date" id="fechaNacimiento" name="fechaNacimiento" required>

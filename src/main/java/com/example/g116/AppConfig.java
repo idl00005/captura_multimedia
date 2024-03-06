@@ -34,4 +34,5 @@ public class AppConfig {
     public String getWelcomeMessage() {
         return message;
     }
+
 }
