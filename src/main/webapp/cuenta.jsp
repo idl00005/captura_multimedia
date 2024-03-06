@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
+<%@ page import="com.example.g116.User" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -17,41 +18,45 @@
 </head>
 <body>
 <%@ include file="header.jspf" %>
+<%
+    session = request.getSession();
+    User user = (User) session.getAttribute("loggedInUser");
+%>
 
 <div class="container">
     <h2>Perfil de Usuario</h2>
     <form>
         <div class="form-group my-1">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" value="Juan" readonly>
+            <input type="text" class="form-control" id="nombre" value="<%= user.getNombre() %>" readonly>
         </div>
         <div class="form-group my-1">
             <label for="apellidos">Apellidos</label>
-            <input type="text" class="form-control" id="apellidos" value="Pérez García" readonly>
+            <input type="text" class="form-control" id="apellidos" value="<%= user.getApellidos() %>" readonly>
         </div>
         <div class="form-group my-1">
             <label for="dni">DNI</label>
-            <input type="text" class="form-control" id="dni" value="12345678A" readonly>
+            <input type="text" class="form-control" id="dni" value="<%= user.getDni() %>" readonly>
         </div>
         <div class="form-group my-1">
             <label for="cp">Código Postal</label>
-            <input type="text" class="form-control" id="cp" value="28001">
+            <input type="text" class="form-control" id="cp" value="<%= user.getCp() %>">
         </div>
         <div class="form-group my-1">
             <label for="ciudad">Ciudad</label>
-            <input type="text" class="form-control" id="ciudad" value="Madrid" >
+            <input type="text" class="form-control" id="ciudad" value="<%= user.getCiudad() %>" >
         </div>
         <div class="form-group my-1">
             <label for="direccion">Dirección</label>
-            <input type="text" class="form-control" id="direccion" value="Calle Alcalá 35" >
+            <input type="text" class="form-control" id="direccion" value="<%= user.getDireccion() %>" >
         </div>
         <div class="form-group my-1">
             <label for="telefono">Teléfono</label>
-            <input type="tel" class="form-control" id="telefono" value="600123456">
+            <input type="tel" class="form-control" id="telefono" value="<%= user.getTelefono() %>">
         </div>
         <div class="form-group my-1">
             <label for="email">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" value="juan@example.com">
+            <input type="email" class="form-control" id="email" value="<%= user.getEmail() %>">
         </div>
         <button type="submit" class="btn btn-warning m-2">Actualizar</button>
     </form>

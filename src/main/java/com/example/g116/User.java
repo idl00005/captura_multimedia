@@ -13,11 +13,12 @@ public class User {
     private String dni;
     private String cp;
     private String ciudad;
+    private String direccion;
     private String telefono;
     private Date fechaNacimiento;
 
     public User(int id, String nombre_usuario, String rol, String nombre, String apellidos, String email, String clave,
-                String dni, String cp, String ciudad, String telefono, Date fechaNacimiento) {
+                String dni, String cp, String ciudad, String direccion, String telefono, Date fechaNacimiento) {
         this.id = id;
         this.nombre_usuario = nombre_usuario;
         this.rol = rol;
@@ -28,6 +29,7 @@ public class User {
         this.dni = dni;
         this.cp = cp;
         this.ciudad = ciudad;
+        this.direccion = direccion;
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
     }
@@ -42,5 +44,37 @@ public class User {
 
     public String getClave() {
         return clave;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public String getCp() {
+        return cp;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 }

@@ -18,7 +18,8 @@ public class AppConfig {
     public AppConfig() {
         log.info("Application started");
         usuarios.anadir_Usuario(new User(1, "ignacio", "admin", "Ignacio",
-                "Delgado Lobelle", "idl00005@red.ujaen.es", "1234", "12345678A", "23071", "Jaén", "684331639", new Date("2001/07/15")));
+                "Delgado Lobelle", "idl00005@red.ujaen.es", "1234", "12345678A", "23071",
+                "Jaén","Calle Patrocinio de Biedma 2", "684331639", new Date("2001/07/15")));
     }
     public static AppConfig getInstance() {
         if (instance == null) {

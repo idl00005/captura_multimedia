@@ -7,13 +7,13 @@ public class UsuariosRegistrados {
     void anadir_Usuario(User usuario){
         usuarios.add(usuario);
     }
-    boolean comprobar_Usuario_Registrado(String nombre_usuario, String clave){
+    User comprobar_Usuario_Registrado(String nombre_usuario, String clave){
         for (User usuario : usuarios) {
             if ( (usuario.getNombre_usuario().equals(nombre_usuario) || usuario.getEmail().equals(nombre_usuario) )
                     && usuario.getClave().equals(clave)){
-                return true;
+                return usuario;
             }
         }
-        return false;
+        return null;
     }
 }

@@ -24,12 +24,12 @@ public class LoginServlet extends HttpServlet {
         UsuariosRegistrados usuarios = AppConfig.getInstance().getUsuariosRegistrados();
 
         // Ahora puedes usar el objeto usuarios para verificar las credenciales
-        Boolean comprobacion = usuarios.comprobar_Usuario_Registrado(identifier, password);
+        User usuario = usuarios.comprobar_Usuario_Registrado(identifier, password);
 
-        if (comprobacion) {
+        if (usuario!=null) {
             // Si las credenciales son correctas, establece un atributo en la sesión y redirige al usuario
             HttpSession session = request.getSession();
-            session.setAttribute("loggedInUser", identifier);
+            session.setAttribute("loggedInUser", usuario);
             response.sendRedirect("index.jsp");
         } else {
             // Si las credenciales no son correctas, envía un mensaje de error
