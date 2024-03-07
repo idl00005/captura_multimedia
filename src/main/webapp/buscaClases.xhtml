@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core" lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,15 +22,15 @@
     </a>
 
     <ul class="nav nav-pills">
-        <li class="nav-item text-white"><a href="index.xhtml" class="nav-link text-white" aria-current="page">Inicio</a></li>
+        <li class="nav-item text-white"><a href="index.jsp" class="nav-link text-white" aria-current="page">Inicio</a></li>
         <li class="nav-item text-white"><a href="buscaClases.xhtml" class="nav-link text-white">Consultar clases</a></li>
         <li class="nav-item text-white">
             <c:choose>
                 <c:when test="${not empty sessionScope.loggedInUser}">
-                    <a href="cuenta.xhtml" class="nav-link text-white">Cuenta</a>
+                    <a href="cuenta.jsp" class="nav-link text-white">Cuenta</a>
                 </c:when>
                 <c:otherwise>
-                    <a href="login.xhtml" class="nav-link text-white">Iniciar sesión</a>
+                    <a href="login.jsp" class="nav-link text-white">Iniciar sesión</a>
                 </c:otherwise>
             </c:choose>
         </li>
@@ -58,37 +61,30 @@
         </div>
     </div>
 </div>
-    <div class="container-fluid d-flex flex-column flex-md-row p-1 gap-1 py-md-1 align-items-center justify-content-center">
-
-    <ul class="list-group flex-fill list-group list-group-horizontal flex-fill">
-            <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><h2>Nombre de la clase</h2></li>
-            <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><p class="badge text-bg-primary rounded-pill">Capacidad</p></li>
-            <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><p class="text-center">Día de clase</p></li>
-            <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><p class="text-center">Horario de la clase</p></li>
-            <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><button class="btn btn-warning">Apuntarme</button></li>
-    </ul>
-    </div>
 
 <div class="container-fluid d-flex flex-column flex-md-row p-1 gap-1 py-md-1 align-items-center justify-content-center">
-
-    <ul class="list-group flex-fill list-group list-group-horizontal flex-fill">
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><h2>Nombre de la clase</h2></li>
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><p class="badge text-bg-primary rounded-pill">Capacidad</p></li>
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><p class="text-center">Día de clase</p></li>
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><p class="text-center">Horario de la clase</p></li>
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><button class="btn btn-warning">Apuntarme</button></li>
-    </ul>
-</div>
-
-<div class="container-fluid d-flex flex-column flex-md-row p-1 gap-1 py-md-1 align-items-center justify-content-center">
-
-    <ul class="list-group flex-fill list-group list-group-horizontal flex-fill">
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><h2>Nombre de la clase</h2></li>
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><p class="badge text-bg-primary rounded-pill">Capacidad</p></li>
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><p class="text-center">Día de clase</p></li>
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><p class="text-center">Horario de la clase</p></li>
-        <li class="list-group-item list-group-horizontal-xl min-width flex-fill"><button class="btn btn-warning">Apuntarme</button></li>
-    </ul>
+    <h:dataTable value="#{activityController.activities}" var="activity">
+        <h:column>
+            <f:facet name="header">Nombre de la clase</f:facet>
+            #{activity.getNombre()}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Capacidad</f:facet>
+            #{activity.dayOfWeek}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Día de clase</f:facet>
+            #{activity.dayOfWeek}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Horario de la clase</f:facet>
+            #{activity.hora}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Apuntarme</f:facet>
+            <h:commandButton value="Apuntarme" action="#{activityController.addActivity(activity)}" />
+        </h:column>
+    </h:dataTable>
 </div>
 
 <footer>

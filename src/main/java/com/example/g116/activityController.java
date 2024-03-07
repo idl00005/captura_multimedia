@@ -1,30 +1,34 @@
 package com.example.g116;
 
 
-import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Named
-@SessionScoped
-public class activityContoller implements Serializable {
+@Named("activityContoller")
+@ViewScoped
+public class activityController implements Serializable {
 
-    private ArrayList<Actividad> activities = new ArrayList<>();
+    private ArrayList<Actividad> activities;
 
-    public activityContoller() {
+    public activityController() {
+        activities = new ArrayList<>();
         activities.add(new Actividad(1, "Pilates", "Clase de pilates",
                 new User(1, "Monitor 1", "","","","",
-                        "","","","","","",new Date("2021-01-01"))));
+                        "","","","","","",new Date("2021-01-01")),
+                new Date("2021-01-01"), LocalTime.of(12,12)));
+        System.out.println("activityContoller created");
     }
 
     public ArrayList<Actividad> getActivities() {
         return activities;
     }
-    public void addActivity(Actividad activity) {
-        this.activities.add(activity);
+    public void apuntarse() {
+
     }
 
     public void removeActivity(Actividad activity) {

@@ -1,6 +1,7 @@
 package com.example.g116;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,13 +17,15 @@ public class Actividad {
 
     private User monitor;
     private Date fecha;
+    private LocalTime hora;
 
-    public Actividad(int id, String nombre, String descripcion, User monitor) {
+    public Actividad(int id, String nombre, String descripcion, User monitor, Date fecha, LocalTime hora) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.inscritos = inscritos;
         this.monitor = monitor;
+        this.fecha = fecha;
+        this.hora = hora;
     }
 
     public int getId() {
@@ -50,5 +53,9 @@ public class Actividad {
     public String getDayOfWeek() {
         LocalDate localDate = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         return localDate.getDayOfWeek().toString();
+    }
+
+    public LocalTime getHora() {
+        return hora;
     }
 }
