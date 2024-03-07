@@ -29,7 +29,7 @@ public class inscribeServlet extends HttpServlet {
             String telefono = request.getParameter("telefono");
 
             if(telefono.length()<9 || telefono.length()>9 || !telefono.matches("^[0-9]{9}$")){
-                errores.put("telefono", "El Teléfonp introducido no es válido");
+                errores.put("telefono", "El Teléfono introducido no es válido");
             }
             String fechaNacimiento = request.getParameter("fechaNacimiento");
             String email = request.getParameter("email");

@@ -68,6 +68,7 @@
           <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
           <label for="floatingPassword">Contraseña</label>
         </div>
+        <div style="color: red">${errorMessage}</div>
         <button class="btn btn-primary w-100 py-2" type="submit" style="margin-top: 20px">Sign in</button>
         <p class="mt-5 mb-3 text-body-secondary">© 2017–2024</p>
       </form>

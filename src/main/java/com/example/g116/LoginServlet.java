@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        log.info("Se esta procesando un POST");
+        log.info("Procesando petición POST en login-servlet");
 
         String identifier = request.getParameter("identifier");
         String password = request.getParameter("password");
@@ -28,10 +28,12 @@ public class LoginServlet extends HttpServlet {
 
         if (usuario!=null) {
             // Si las credenciales son correctas, establece un atributo en la sesión y redirige al usuario
+            log.info("Credenciales correctas, redirigiendo al usuario a index.jsp");
             HttpSession session = request.getSession();
             session.setAttribute("loggedInUser", usuario);
             response.sendRedirect("index.jsp");
         } else {
+            log.warning("Credenciales incorrectas, redirigiendo al usuario a login.jsp");
             // Si las credenciales no son correctas, envía un mensaje de error
             request.setAttribute("errorMessage", "Identificador o contraseña incorrectos");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
