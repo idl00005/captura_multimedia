@@ -21,6 +21,7 @@ public class Actividad {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.inscritos = inscritos;
         this.monitor = monitor;
     }
 
