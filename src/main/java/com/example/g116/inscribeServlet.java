@@ -1,5 +1,7 @@
 package com.example.g116;
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import com.example.g116.User;
@@ -10,10 +12,10 @@ import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-
+import jakarta.servlet.http.HttpServlet;
 @WebServlet(name = "inscribeServlet", value = "/inscripcion")
-public class inscribeServlet extends HttpServlet {
 
+public class inscribeServlet extends HttpServlet {
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             Map<String, String> errores= new HashMap<String, String>();
             System.out.println("Entrando en el método doPost");
@@ -29,23 +31,23 @@ public class inscribeServlet extends HttpServlet {
             if(telefono.length()<9 || telefono.length()>9 || !telefono.matches("^[0-9]{9}$")){
                 errores.put("telefono", "El Teléfonp introducido no es válido");
             }
-            String fecha_nacimiento = request.getParameter("fecha_nacimiento");
+            String fechaNacimiento = request.getParameter("fechaNacimiento");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String direccion = request.getParameter("direccion");
             String ciudad = request.getParameter("ciudad");
-            String cp = request.getParameter("cp");
+            String codigoPostal = request.getParameter("codigoPostal");
 
             request.setAttribute("nombre", nombre);
             request.setAttribute("apellidos", apellidos);
             request.setAttribute("dni", dni);
             request.setAttribute("telefono", telefono);
-            request.setAttribute("fecha_nacimiento", fecha_nacimiento);
+            request.setAttribute("fechaNacimiento", fechaNacimiento);
             request.setAttribute("email", email);
             request.setAttribute("password", password);
             request.setAttribute("direccion", direccion);
             request.setAttribute("ciudad", ciudad);
-            request.setAttribute("cp", cp);
+            request.setAttribute("codigoPostal", codigoPostal);
 
             if(!errores.isEmpty()){
 
@@ -53,7 +55,16 @@ public class inscribeServlet extends HttpServlet {
                 request.getRequestDispatcher("/formularioInscripcion.jsp").forward(request, response);
                 return;
             } else {
-                request.getRequestDispatcher("/WEB-INF/jsp/inscripcion.jsp").forward(request, response);
+                SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                Date fechaNac = null;
+                try {
+                    fechaNac = formato.parse(fechaNacimiento);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                AppConfig.getInstance().getUsuariosRegistrados().anadir_Usuario(new User(2, nombre, "admin" ,nombre, apellidos, email, password, dni, codigoPostal, ciudad, direccion, telefono, fechaNac));
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
         }
 }

@@ -25,11 +25,11 @@
 <div>Apellidos: ${apellidos}</div>
 <div>DNI: ${dni}</div>
 <div>Teléfono: ${telefono}</div>
-<div>Fecha Nacimiento: ${fecha_nacimiento}</div>
+<div>Fecha Nacimiento: ${fechaNacimiento}</div>
 <div>Correo electrónico: ${email}</div>
 <div>Contraseña: ${password}</div>
 <div>Dirección: ${direccion}</div>
 <div>Ciudad: ${ciudad}</div>
-<div>Código Postal: ${cp}</div>
+<div>Código Postal: ${codigoPostal}</div>
 </body>
 </html>
