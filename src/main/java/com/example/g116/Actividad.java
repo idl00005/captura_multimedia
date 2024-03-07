@@ -1,5 +1,8 @@
 package com.example.g116;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.faces.annotation.FacesConfig;
+
 import java.util.ArrayList;
 
 public class Actividad {

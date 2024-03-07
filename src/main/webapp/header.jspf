@@ -17,7 +17,7 @@
 
     <ul class="nav nav-pills">
         <li class="nav-item text-white"><a href="index.jsp" class="nav-link text-white" aria-current="page">Inicio</a></li>
-        <li class="nav-item text-white"><a href="buscaClases.jsp" class="nav-link text-white" >Consultar clases</a></li>
+        <li class="nav-item text-white"><a href="buscaClases.xhtml" class="nav-link text-white" >Consultar clases</a></li>
         <c:choose>
             <c:when test="${not empty sessionScope.loggedInUser}">
                 <li class="nav-item text-white"><a href="cuenta.jsp" class="nav-link text-white">Cuenta</a></li>
