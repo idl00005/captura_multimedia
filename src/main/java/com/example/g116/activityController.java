@@ -17,7 +17,9 @@ public class activityController implements Serializable {
 
     public activityController() {
         activities = new ArrayList<>();
-        activities.add(new Actividad(1, "Yoga", new Date("2024/12/12"), "10:00",
+        activities.add(new Actividad(1, "Yoga", new Date("2024/03/8"), "10:00",
+                "Lunes", "10"));
+        activities.add(new Actividad(1, "Pilates", new Date("2024/12/12"), "10:00",
                 "Lunes", "10"));
     }
 

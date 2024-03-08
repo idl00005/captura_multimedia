@@ -62,30 +62,20 @@
     </div>
 </div>
 
-<div class="container-fluid d-flex flex-column flex-md-row p-1 gap-1 py-md-1 align-items-center justify-content-center">
-    <h:dataTable value="#{activityController.activities}" var="activity">
-        <h:column>
-            <f:facet name="header">Nombre de la clase</f:facet>
-            #{activity.nombre}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Capacidad</f:facet>
-            #{activity.capacidad}/#{activity.capacidad}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Día de clase</f:facet>
-            #{activity.fecha}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Horario de la clase</f:facet>
-            #{activity.hora}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Apuntarme</f:facet>
-            <h:commandButton value="Apuntarme" action="#{activityController.addActivity(activity)}" />
-        </h:column>
-    </h:dataTable>
-</div>
+<ui:repeat value="#{activityController.activities}" var="activity">
+
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item list-group-horizontal-xl w-25"><h2>#{activity.nombre}</h2></li>
+    <li class="list-group-item list-group-horizontal-xl w-25"><p class="badge text-bg-primary rounded-pill">#{activity.capacidad}/#{activity.capacidad}</p></li>
+    <li class="list-group-item list-group-horizontal-xl w-25"><p class="text-center">
+        <h:outputText value="#{activity.fecha}">
+        <f:convertDateTime pattern="yyyy/MM/dd" />
+        </h:outputText></p></li>
+    <li class="list-group-item list-group-horizontal-xl w-25"><p class="text-center"> #{activity.hora}</p></li>
+    <li class="list-group-item list-group-horizontal-xl w-25"><h:commandLink value="Apuntarme" action="#{activityController.addActivity(activity)}" styleClass="btn btn-warning" style="text-align: center"/></li>
+</ul>
+
+</ui:repeat>
 
 <footer>
     <div class="p-3">
