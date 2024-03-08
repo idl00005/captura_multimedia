@@ -1,6 +1,7 @@
 package com.example.g116;
 
 
+import jakarta.annotation.ManagedBean;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;
@@ -9,19 +10,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Named("activityContoller")
+@Named("activityController")
 @ViewScoped
+@ManagedBean
 public class activityController implements Serializable {
 
     private ArrayList<Actividad> activities;
 
     public activityController() {
         activities = new ArrayList<>();
+
         activities.add(new Actividad(1, "Pilates", "Clase de pilates",
                 new User(1, "Monitor 1", "","","","",
-                        "","","","","","",new Date("2021-01-01")),
-                new Date("2021-01-01"), LocalTime.of(12,12)));
-        System.out.println("activityContoller created");
+                        "","","","","","",new Date("2021/01/01")),
+                new Date("2021/01/01"), LocalTime.of(12,12)));
+
+
+        System.out.println("activityController created");
     }
 
     public ArrayList<Actividad> getActivities() {

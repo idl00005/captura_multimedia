@@ -7,17 +7,21 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Actividad {
-    private int id;
+    private int id=0;
 
-    private String nombre;
+    private String nombre="";
 
-    private String descripcion;
+    private String descripcion="";
 
     private ArrayList<User> inscritos = new ArrayList<>();
 
-    private User monitor;
-    private Date fecha;
-    private LocalTime hora;
+    private User monitor=null;
+    private Date fecha=null;
+    private LocalTime hora=null;
+
+    public Actividad(){
+
+    }
 
     public Actividad(int id, String nombre, String descripcion, User monitor, Date fecha, LocalTime hora) {
         this.id = id;
