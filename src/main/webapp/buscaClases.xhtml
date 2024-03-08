@@ -64,15 +64,15 @@
 
 <ui:repeat value="#{activityController.activities}" var="activity">
 
-<ul class="list-group list-group-horizontal">
-    <li class="list-group-item list-group-horizontal-xl w-25"><h2>#{activity.nombre}</h2></li>
-    <li class="list-group-item list-group-horizontal-xl w-25"><p class="badge text-bg-primary rounded-pill">#{activity.capacidad}/#{activity.capacidad}</p></li>
-    <li class="list-group-item list-group-horizontal-xl w-25"><p class="text-center">
+<ul class="list-group list-group-horizontal px-2 ">
+    <li class="list-group-item list-group-horizontal-xl text-center w-25"><h2>#{activity.nombre}</h2></li>
+    <li class="list-group-item list-group-horizontal-xl text-center w-25"><p class="badge text-bg-primary rounded-pill">#{activity.capacidad}/#{activity.capacidad}</p></li>
+    <li class="list-group-item list-group-horizontal-xl text-center w-25"><p class="text-center">
         <h:outputText value="#{activity.fecha}">
         <f:convertDateTime pattern="yyyy/MM/dd" />
         </h:outputText></p></li>
-    <li class="list-group-item list-group-horizontal-xl w-25"><p class="text-center"> #{activity.hora}</p></li>
-    <li class="list-group-item list-group-horizontal-xl w-25"><h:commandLink value="Apuntarme" action="#{activityController.addActivity(activity)}" styleClass="btn btn-warning" style="text-align: center"/></li>
+    <li class="list-group-item list-group-horizontal-xl text-center w-25"><p class="text-center"> #{activity.hora}</p></li>
+    <li class="list-group-item list-group-horizontal-xl text-center w-25"><h:commandLink value="Apuntarme" action="#{activityController.addActivity(activity)}" styleClass="btn btn-warning" style="text-align: center"/></li>
 </ul>
 
 </ui:repeat>

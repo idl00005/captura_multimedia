@@ -14,6 +14,9 @@ import java.util.List;
 public class activityController implements Serializable {
 
     private List<Actividad> activities;
+    private Actividad actividad;
+
+    private int idActividad;
 
     public activityController() {
         activities = new ArrayList<>();
@@ -23,17 +26,43 @@ public class activityController implements Serializable {
                 "Lunes", "10"));
     }
 
+    public Actividad buscarActividadPorId(){
+        for (Actividad acti : activities) {
+            if (acti.getId() == idActividad) {
+                actividad=acti;
+            }
+        }
+        return null;
+    }
+
+    public Actividad getActividad() {
+        return actividad;
+    }
+
+    public void setActividad(Actividad actividad) {
+        this.actividad = actividad;
+    }
+
+    public void setIdActividad(int idActividad) {
+        this.idActividad = idActividad;
+    }
+
+    public int getIdActividad() {
+        return idActividad;
+    }
+
+
+
     public List<Actividad> getActivities() {
         return activities;
     }
     public void apuntarse() {
-
     }
 
     public void removeActivity(Actividad activity) {
         this.activities.remove(activity);
     }
-    /*
+
     public void updateActivity(Actividad activity) {
         for (int i = 0; i < activities.size(); i++) {
             if (activities.get(i).getId() == activity.getId()) {
@@ -42,14 +71,19 @@ public class activityController implements Serializable {
             }
         }
     }
-
+/*
     public List<Actividad> searchActivitiesByDay(String dayOfWeek) {
+
         List<Actividad> result = new ArrayList<>();
         for (Actividad activity : activities) {
-            if (activity.getDayOfWeek().equalsIgnoreCase(dayOfWeek)) {
+            if (activity.getFecha(). == dayOfWeek{
                 result.add(activity);
             }
         }
         return result;
-    }*/
+
+
+    }
+
+ */
 }

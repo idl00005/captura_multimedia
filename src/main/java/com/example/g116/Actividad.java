@@ -24,6 +24,9 @@ public class Actividad {
         this.capacidad = capacidad;
     }
 
+    public int getId() {
+        return id;
+    }
     public String getNombre() {
         return nombre;
     }
