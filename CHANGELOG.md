@@ -1,4 +1,20 @@
 # Changelog
+## [1.1] - 2024-03-08
+### Changed
+- Transformadas todas las vistas html a jsp, excepto buscaClases que se ha pasado a jsf. [Ignacio Delgado Lobelle y Juan Manuel Arriaza Rey]
+- Modificado web.xml para que aparezca como página de bienvenida la página principal. [Juan Manuel Arriaza Rey]
+- Modicado web.xml para que la página de error 404 y error general sea personalizada. [Juan Manuel Arriaza Rey]
+
+### Added
+- Añadido archivo footer.jspf y header.jspf que se emplea en las vistas jsp. [Ignacio Delgado Lobelle]
+- Añadida clase Actividad que representa a la entidad actividad. [Ignacio Delgado Lobelle]
+- Añadida la clase User que representa a la entidad usuario. [Ignacio Delgado Lobelle]
+- Añadido el Servlet LoginServlet que se encarga de gestionar el login de los usuarios. [Ignacio Delgado Lobelle]
+- Añadido el Servlet inscribeServlet que gestiona la inscripción de nuevos usuarios. [Juan Manuel Arriaza Rey]
+- Añadido controlador activityController que gestiona las actividades que se muestran en buscaClases.xhtml. [Ignacio Delgado Lobelle]
+- Añadido template.xhtml que se emplea como plantilla que muestra la cabecera y pie de página [Ignacio Delgado Lobelle]
+- Añdido página de detalle de actividad. [Juan Manuel Arriaza Rey]
+
 ## [0.2] - 2024-02-16
 ### Changed
 - Modificación del footer de las páginas elige suscripción, formulario inscripción y busca clases [Juan Manuel Arriaza Rey]
