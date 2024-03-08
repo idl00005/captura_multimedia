@@ -66,15 +66,15 @@
     <h:dataTable value="#{activityController.activities}" var="activity">
         <h:column>
             <f:facet name="header">Nombre de la clase</f:facet>
-            #{activity.getNombre()}
+            #{activity.nombre}
         </h:column>
         <h:column>
             <f:facet name="header">Capacidad</f:facet>
-            #{activity.dayOfWeek}
+            #{activity.capacidad}/#{activity.capacidad}
         </h:column>
         <h:column>
             <f:facet name="header">Día de clase</f:facet>
-            #{activity.dayOfWeek}
+            #{activity.fecha}
         </h:column>
         <h:column>
             <f:facet name="header">Horario de la clase</f:facet>

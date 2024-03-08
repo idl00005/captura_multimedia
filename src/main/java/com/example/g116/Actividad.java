@@ -10,52 +10,37 @@ public class Actividad {
     private int id;
 
     private String nombre;
-
-    private String descripcion;
-
-    private ArrayList<User> inscritos = new ArrayList<>();
-
-    private User monitor;
     private Date fecha;
-    private LocalTime hora;
+    private String hora;
+    private String diaSemana;
+    private String capacidad;
 
-    public Actividad(int id, String nombre, String descripcion, User monitor, Date fecha, LocalTime hora) {
+    public Actividad(int id, String nombre, Date fecha, String hora, String diaSemana, String capacidad) {
         this.id = id;
         this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.monitor = monitor;
         this.fecha = fecha;
         this.hora = hora;
-    }
-
-    public int getId() {
-        return id;
+        this.diaSemana = diaSemana;
+        this.capacidad = capacidad;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public ArrayList<User> getInscritos() {
-        return inscritos;
-    }
-
-    public User getMonitor() {
-        return monitor;
-    }
     public Date getFecha() {
         return fecha;
     }
-    public String getDayOfWeek() {
-        LocalDate localDate = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return localDate.getDayOfWeek().toString();
+
+    public String getHora() {
+        return hora;
     }
 
-    public LocalTime getHora() {
-        return hora;
+    public String getDiaSemana() {
+        return diaSemana;
+    }
+
+    public String getCapacidad() {
+        return capacidad;
     }
 }
