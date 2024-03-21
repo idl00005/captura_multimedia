@@ -49,7 +49,7 @@
                 </ul>
                 <h2 class="text-center text-warning fw-bold text-decoration-underline">30€/mes</h2>
 
-                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="formularioInscripcion.jsp">Elegir esta oferta!</a>
+                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="formularioInscripcion.xhtml">Elegir esta oferta!</a>
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@
                     </li>
                 </ul>
                 <h2 class="text-center text-warning fw-bold text-decoration-underline">37€/mes</h2>
-                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="formularioInscripcion.jsp">Elegir esta oferta!</a>
+                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="formularioInscripcion.xhtml">Elegir esta oferta!</a>
             </div>
         </div>
     </div>
@@ -110,7 +110,7 @@
                     </li>
                 </ul>
                 <h2 class="text-center text-warning fw-bold text-decoration-underline">42€/mes</h2>
-                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="formularioInscripcion.jsp">Elegir esta oferta!</a>
+                <a type="button" class="btn btn-lg btn-warning mt-5 w-100" data-bs-dismiss="modal" href="formularioInscripcion.xhtml">Elegir esta oferta!</a>
             </div>
         </div>
     </div>
