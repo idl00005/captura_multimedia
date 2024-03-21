@@ -30,6 +30,7 @@ public class activityController implements Serializable {
         for (Actividad acti : activities) {
             if (acti.getId() == idActividad) {
                 actividad=acti;
+
             }
         }
         return null;

@@ -1,0 +1,44 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:ui="http://java.sun.com/jsf/facelets"
+              xmlns:cc="http://xmlns.jcp.org/jsf/composite" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <cc:interface>
+        <cc:attribute name="value"/>
+    </cc:interface>
+
+    <cc:implementation>
+
+        <article>
+
+            <h2 class="fw-bold mb-1" style="text-align: center">Detalle de la actividad -
+                #{cc.attrs.value.nombre}</h2>
+            <ul class="d-grid gap-4 my-5 list-unstyled small">
+                <li class="d-flex gap-4">
+                    <div>
+                        <h5 class="mb-0">Día</h5>
+                        #{cc.attrs.value.diaSemana}
+                    </div>
+                </li>
+
+                <li class="d-flex gap-4">
+                    <div>
+                        <h5 class="mb-0">Hora</h5>
+                        #{cc.attrs.value.hora}
+                    </div>
+                </li>
+
+                <li class="d-flex gap-4">
+                    <div>
+                        <h5 class="mb-0">Capacidad actual</h5>
+                        #{cc.attrs.value.capacidad}
+
+                    </div>
+                </li>
+                <li class="d-flex gap-4">
+                <a href="./buscaClases.xhtml"><button class="btn btn-primary">Atrás</button></a>
+                </li>
+            </ul>
+        </article>
+    </cc:implementation>
+
+</ui:component>
