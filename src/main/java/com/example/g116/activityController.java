@@ -15,8 +15,11 @@ public class activityController implements Serializable {
 
     private List<Actividad> activities;
     private Actividad actividad;
+    private Actividad actividad2=null;
 
-    private int idActividad;
+    private int idActividad2;
+
+    private int idActividad=0;
 
     public activityController() {
         activities = new ArrayList<>();
@@ -27,6 +30,7 @@ public class activityController implements Serializable {
     }
 
     public Actividad buscarActividadPorId(){
+        System.out.println("buscarActividadPorId");
         for (Actividad acti : activities) {
             if (acti.getId() == idActividad) {
                 actividad=acti;
@@ -36,8 +40,28 @@ public class activityController implements Serializable {
         return null;
     }
 
+
+    public void recupera(int activity) {
+        System.out.println("recupera");
+        for (Actividad acti : activities) {
+            if (acti.getId() == activity) {
+                idActividad = acti.getId();
+                actividad = acti;
+            }
+        }
+    }
+
+    public void reset(){
+        actividad=null;
+    }
+
+
     public Actividad getActividad() {
         return actividad;
+    }
+
+    public Actividad getActividad2() {
+        return actividad2;
     }
 
     public void setActividad(Actividad actividad) {
@@ -50,6 +74,10 @@ public class activityController implements Serializable {
 
     public int getIdActividad() {
         return idActividad;
+    }
+
+    public int getIdActividad2() {
+        return idActividad2;
     }
 
 
@@ -72,6 +100,8 @@ public class activityController implements Serializable {
             }
         }
     }
+
+
 /*
     public List<Actividad> searchActivitiesByDay(String dayOfWeek) {
 
