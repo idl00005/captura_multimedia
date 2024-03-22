@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Actividad {
-    private int id;
+    private int id=0;
 
     private String nombre;
     private Date fecha;
@@ -29,6 +29,10 @@ public class Actividad {
     }
     public String getNombre() {
         return nombre;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getFecha() {
