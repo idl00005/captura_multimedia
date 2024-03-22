@@ -1,5 +1,10 @@
 package com.example.g116;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 import java.util.Date;
 
 public class User {
@@ -8,12 +13,17 @@ public class User {
     private String rol;
     private String nombre;
     private String apellidos;
+    @NotEmpty(message = "El correo electrónico es obligatorio")
+    @Email(message = "El correo electrónico debe tener un formato válido")
+    @Pattern(regexp = ".*@.*", message = "El correo electrónico debe contener al menos una arroba")
     private String email;
     private String clave;
     private String dni;
     private String cp;
     private String ciudad;
     private String direccion;
+    @Pattern(regexp = "\\d+", message = "El teléfono debe contener solo números")
+    @Size(min = 8, max = 15, message = "El teléfono debe tener entre 8 y 15 caracteres")
     private String telefono;
     private Date fechaNacimiento;
 

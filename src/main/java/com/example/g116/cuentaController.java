@@ -1,12 +1,18 @@
 package com.example.g116;
 
 import com.example.g116.User;
+import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Named("cuentaController")
 @ViewScoped
@@ -26,18 +32,17 @@ public class cuentaController implements Serializable {
         this.user = user;
     }
     public String updateUser() {
-        String newCp = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("cp");
-        String newCiudad = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("ciudad");
-        String newDireccion = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("direccion");
-        String newTelefono = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("telefono");
-        String newEmail = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("email");
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
 
-        user.setCp(newCp);
-        user.setCiudad(newCiudad);
-        user.setDireccion(newDireccion);
-        user.setTelefono(newTelefono);
-        user.setEmail(newEmail);
+        Set<ConstraintViolation<User>> violations = validator.validate(user);
 
+        if (!violations.isEmpty()) {
+            for (ConstraintViolation<User> violation : violations) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, violation.getMessage(), null));
+            }
+            return null;
+        }
         return "cuenta?faces-redirect=true";
     }
 }
