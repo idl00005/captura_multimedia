@@ -4,6 +4,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
       lang="es">
 <ui:composition template="/WEB-INF/templates/template.xhtml">
 
@@ -30,22 +31,32 @@
             </div>
         </div>
 
-        <ui:repeat value="#{activityController.activities}" var="activity">
+        <p:dataTable var="activity" value="#{activityController.activities}" class="table" style="width: 95%; margin: auto">
+            <p:column headerText="Nombre" styleClass="text-center" style="width: 19% ;">
+                <h2>#{activity.nombre}</h2>
+            </p:column>
+            <p:column headerText="Capacidad" styleClass="text-center" style="width: 19% ;">
+                <p class="badge text-bg-primary rounded-pill">#{activity.capacidad}/#{activity.capacidad}</p>
+            </p:column>
+            <p:column headerText="Fecha" styleClass="text-center" style="width: 19% ;">
+                <h:outputText value="#{activity.fecha}">
+                    <f:convertDateTime pattern="yyyy/MM/dd" />
+                </h:outputText>
+            </p:column>
+            <p:column headerText="Hora" styleClass="text-center" style="width: 19% ;">
+                <p class="text-center"> #{activity.hora}</p>
+            </p:column>
+            <p:column headerText="Más información" styleClass="text-center" style="width: 19% ;">
+                <a href="detalle.xhtml?id=#{activity.id}" class="btn btn-primary">Más información</a>
+            </p:column>
+            <p:column headerText="Apuntarme" styleClass="text-center" style="width: 19% ;">
+                <h:commandLink value="Apuntarme" action="#{activityController.addActivity(activity)}" styleClass="btn btn-warning"/>
+            </p:column>
+        </p:dataTable>
 
-            <ul class="list-group list-group-horizontal px-5">
-                <li class="list-group-item list-group-horizontal-xl w-25 text-center"><h2>#{activity.nombre}</h2></li>
-                <li class="list-group-item list-group-horizontal-xl w-25 text-center"><p class="badge text-bg-primary rounded-pill">#{activity.capacidad}/#{activity.capacidad}</p></li>
-                <li class="list-group-item list-group-horizontal-xl w-25 text-center"><p class="text-center">
-                    <h:outputText value="#{activity.fecha}">
-                        <f:convertDateTime pattern="yyyy/MM/dd" />
-                    </h:outputText></p></li>
-                <li class="list-group-item list-group-horizontal-xl w-25 text-center"><p class="text-center"> #{activity.hora}</p></li>
-                <li class="list-group-item list-group-horizontal-xl w-25 text-center"><a href="detalle.xhtml?id=#{activity.id}"><button class="btn btn-primary">Más información</button></a></li>
 
-                <li class="list-group-item list-group-horizontal-xl w-25 text-center"><h:commandLink value="Apuntarme" action="#{activityController.addActivity(activity)}" styleClass="btn btn-warning" style="text-align: center"/></li>
-            </ul>
 
-        </ui:repeat>
+
     </ui:define>
 
 </ui:composition>
