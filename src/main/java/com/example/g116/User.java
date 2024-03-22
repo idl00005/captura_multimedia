@@ -77,4 +77,24 @@ public class User {
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCp(String cp) {
+        this.cp = cp;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 }
