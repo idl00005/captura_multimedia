@@ -7,10 +7,12 @@
 - Modificar el atributo de capacidad de una actividad para que se muestre el detalle de la misma al pulsar sobre ella con AJAX [Juan Manuel Arriaza Rey]
 - Modificación de la tabla de actividades por un datatable de la biblioteca de primefaces y fusión con la utilización de AJAX [Ignacio Delgado Lobelle y Juan Manuel Arriaza Rey]
 - Modificación de cuenta para poder realizar la validación de datos con BEAN VALIDATION [Ignacio Delgado Lobelle]
+- Sustituido cuenta.jsp por el archivo JSF cuenta.xhtml que se encarga de gestionar los datos de usuario [Ignacio Delgado Lobelle]
 
 ### Added
 - Creación de archivo bean clase.xhtml que se encarga de gestionar el detalle de actividad que se muestra en capacidad [Juan Manuel Arriaza Rey]
-- Creación de archivo JSF cuenta.xhtml que se encarga de gestionar los datos de usuario [Ignacio Delgado Lobelle]
+- Añadida la funcionalidad que permite actualizar los datos de Usuario [Ignacio Delgado Lobelle]
+
 ## [1.1] - 2024-03-08
 ### Changed
 - Transformadas todas las vistas html a jsp, excepto buscaClases que se ha pasado a jsf. [Ignacio Delgado Lobelle y Juan Manuel Arriaza Rey]

@@ -8,7 +8,6 @@ import java.util.Date;
 
 public class Actividad {
     private int id=0;
-
     private String nombre;
     private Date fecha;
     private String hora;
