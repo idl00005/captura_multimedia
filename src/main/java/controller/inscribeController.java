@@ -1,19 +1,16 @@
-package com.example.g116;
+package controller;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-import jakarta.annotation.ManagedBean;
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.faces.application.FacesMessage;
+import com.example.g116.AppConfig;
+import model.validator.User;
+import com.example.g116.UsuariosRegistrados;
 import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
-import jakarta.faces.validator.ValidatorException;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 

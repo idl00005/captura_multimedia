@@ -1,4 +1,4 @@
-package com.example.g116;
+package model.validator;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

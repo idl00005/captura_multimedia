@@ -43,7 +43,7 @@
                 <h2>#{activity.nombre}</h2>
             </p:column>
             <p:column headerText="Capacidad" styleClass="text-center" style="width: 19% ;">
-                <h:commandButton value="Consultar capacidad" styleClass="btn btn-primary" action="#{activityController.recupera(activity.id)}">
+                <h:commandButton value="Consultar capacidad" styleClass="btn btn-primary" action="#{ActividadDAO.recupera(activity.id)}">
                     <f:ajax render="detalle" execute="@this" />
                 </h:commandButton>
             </p:column>

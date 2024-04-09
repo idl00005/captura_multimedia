@@ -3,6 +3,7 @@ package com.example.g116;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.annotation.FacesConfig;
 import jakarta.inject.Named;
+import model.validator.User;
 
 import java.util.Date;
 import java.util.logging.Logger;

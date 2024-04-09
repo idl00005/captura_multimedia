@@ -1,6 +1,6 @@
-package com.example.g116;
+package controller;
 
-import com.example.g116.User;
+import model.validator.User;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;

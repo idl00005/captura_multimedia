@@ -1,10 +1,11 @@
-package com.example.g116;
+package controller;
 
 
+import model.dao.ActividadDAO;
+import model.validator.Actividad;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,11 +16,8 @@ public class activityController implements Serializable {
 
     private List<Actividad> activities;
     private Actividad actividad;
-    private Actividad actividad2=null;
-
-    private int idActividad2;
-
     private int idActividad=0;
+    ActividadDAO actividadDAO;
 
     public activityController() {
         activities = new ArrayList<>();
@@ -27,6 +25,7 @@ public class activityController implements Serializable {
                 "Miércoles", "4"));
         activities.add(new Actividad(2, "Pilates", new Date("2024/12/12"), "10:00",
                 "Lunes", "10"));
+        actividadDAO = new ActividadDAO(activities,this);
     }
 
     public Actividad buscarActividadPorId(){
@@ -60,10 +59,6 @@ public class activityController implements Serializable {
         return actividad;
     }
 
-    public Actividad getActividad2() {
-        return actividad2;
-    }
-
     public void setActividad(Actividad actividad) {
         this.actividad = actividad;
     }
@@ -75,12 +70,6 @@ public class activityController implements Serializable {
     public int getIdActividad() {
         return idActividad;
     }
-
-    public int getIdActividad2() {
-        return idActividad2;
-    }
-
-
 
     public List<Actividad> getActivities() {
         return activities;
