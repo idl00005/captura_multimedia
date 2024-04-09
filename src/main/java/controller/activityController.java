@@ -41,13 +41,7 @@ public class activityController implements Serializable {
 
 
     public void recupera(int activity) {
-        System.out.println("recupera");
-        for (Actividad acti : activities) {
-            if (acti.getId() == activity) {
-                idActividad = acti.getId();
-                actividad = acti;
-            }
-        }
+        actividadDAO.recupera(activity);
     }
 
     public void reset(){
