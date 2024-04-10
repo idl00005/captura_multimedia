@@ -36,6 +36,30 @@ public class ActividadDAOJpa implements ActividadDAO{
         }
         return l;
     }
+
+    public List<Actividad> buscarPorDia(String dias){
+        List<Actividad> l;
+        try{
+            l = em.createQuery("SELECT l FROM Actividad l WHERE l.diaSemana = :dias", Actividad.class)
+                    .setParameter("dias", dias)
+                    .getResultList();        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se pueden recuperar las actividades",e);
+            l=new ArrayList<>();
+        }
+        return l;
+    }
+
+    public Actividad buscarPorId(int id){
+        Actividad l = null;
+        try{
+            l = em.createQuery("SELECT l FROM Actividad l WHERE l.id = :id", Actividad.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
+        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se pueden recuperar las actividades",e);
+        }
+        return l;
+    }
     
 
     @Override

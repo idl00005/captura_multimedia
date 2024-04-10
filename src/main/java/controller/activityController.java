@@ -21,9 +21,10 @@ public class activityController implements Serializable {
 
     private List<Actividad> activities;
     private Actividad actividad;
-    private Actividad actividad2=null;
+    private String selectedDay="Lunes";
 
-    private int idActividad2;
+
+
 
     private int idActividad=0;
 
@@ -31,14 +32,12 @@ public class activityController implements Serializable {
 
     }
 
-    public Actividad buscarActividadPorId(){
-        System.out.println("buscarActividadPorId");
-        for (Actividad acti : activities) {
-            if (acti.getId() == idActividad) {
-                actividad=acti;
+    public List<Actividad> busquedaPorDias(String dias){
+        return actividadDAOJpa.buscarPorDia(dias);
+    }
 
-            }
-        }
+    public Actividad buscarActividadPorId(){
+        actividad = actividadDAOJpa.buscarPorId(idActividad);
         return null;
     }
 
@@ -62,9 +61,6 @@ public class activityController implements Serializable {
         return actividad;
     }
 
-    public Actividad getActividad2() {
-        return actividad2;
-    }
 
     public void setActividad(Actividad actividad) {
         this.actividad = actividad;
@@ -78,17 +74,24 @@ public class activityController implements Serializable {
         return idActividad;
     }
 
-    public int getIdActividad2() {
-        return idActividad2;
-    }
-
-
 
     public List<Actividad> getActivities() {
         activities = actividadDAOJpa.buscaTodos();
         return activities;
     }
+
+    public void updateActivities() {
+        activities = busquedaPorDias(selectedDay);
+    }
     public void apuntarse() {
+    }
+
+    public String getSelectedDay() {
+        return selectedDay;
+    }
+
+    public void setSelectedDay(String selectedDay) {
+        this.selectedDay = selectedDay;
     }
 
     public void removeActivity(Actividad activity) {

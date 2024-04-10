@@ -15,7 +15,7 @@
             <ul class="d-grid gap-4 my-5 list-unstyled small">
                 <li class="d-flex gap-4">
                     <div>
-                        <h5 class="mb-0">Día</h5>
+                        <h5 class="mb-0">Día de la semana</h5>
                         #{cc.attrs.value.diaSemana}
                     </div>
                 </li>
@@ -23,7 +23,7 @@
                 <li class="d-flex gap-4">
                     <div>
                         <h5 class="mb-0">Hora</h5>
-                        #{cc.attrs.value.hora}
+                        #{cc.attrs.value.fecha.hours}:#{cc.attrs.value.fecha.minutes}
                     </div>
                 </li>
 
