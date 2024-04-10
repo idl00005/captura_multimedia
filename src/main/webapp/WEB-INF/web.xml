@@ -28,6 +28,18 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <data-source>
+    <name>java:global/jdbc/gimnasio</name> <!-- JNDI resource -->
+    <class-name>org.h2.jdbcx.JdbcDataSource</class-name> <!-- Driver -->
+    <!-- hd DB FILES in user folder -->
+    <url>jdbc:h2:~/h2db/powerfit;MODE=LEGACY;AUTO_SERVER=TRUE</url>
+        <user>powerfit</user>
+        <password>powerfit</password>
+        <initial-pool-size>2</initial-pool-size>
+        <max-pool-size>10</max-pool-size>
+        <min-pool-size>5</min-pool-size>
+    </data-source>
+
     <!-- error-code related error pages -->
     <error-page>
         <!-- Page not found -->

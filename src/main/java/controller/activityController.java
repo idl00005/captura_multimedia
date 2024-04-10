@@ -1,11 +1,14 @@
 package controller;
 
-
-import model.dao.ActividadDAO;
-import model.validator.Actividad;
+import com.example.g116.qualifiers.DAOJpa;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import model.dao.ActividadDAOJpa;
+import model.validator.Actividad;
+
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,19 +16,19 @@ import java.util.List;
 @Named("activityController")
 @ViewScoped
 public class activityController implements Serializable {
+    @Inject @DAOJpa
+    private ActividadDAOJpa actividadDAOJpa;
 
     private List<Actividad> activities;
     private Actividad actividad;
+    private Actividad actividad2=null;
+
+    private int idActividad2;
+
     private int idActividad=0;
-    ActividadDAO actividadDAO;
 
     public activityController() {
-        activities = new ArrayList<>();
-        activities.add(new Actividad(1, "Yoga", new Date("2024/03/8"), "15:00",
-                "Miércoles", "4"));
-        activities.add(new Actividad(2, "Pilates", new Date("2024/12/12"), "10:00",
-                "Lunes", "10"));
-        actividadDAO = new ActividadDAO(activities,this);
+
     }
 
     public Actividad buscarActividadPorId(){
@@ -41,7 +44,13 @@ public class activityController implements Serializable {
 
 
     public void recupera(int activity) {
-        actividadDAO.recupera(activity);
+        System.out.println("recupera");
+        for (Actividad acti : activities) {
+            if (acti.getId() == activity) {
+                idActividad = acti.getId();
+                actividad = acti;
+            }
+        }
     }
 
     public void reset(){
@@ -51,6 +60,10 @@ public class activityController implements Serializable {
 
     public Actividad getActividad() {
         return actividad;
+    }
+
+    public Actividad getActividad2() {
+        return actividad2;
     }
 
     public void setActividad(Actividad actividad) {
@@ -65,7 +78,14 @@ public class activityController implements Serializable {
         return idActividad;
     }
 
+    public int getIdActividad2() {
+        return idActividad2;
+    }
+
+
+
     public List<Actividad> getActivities() {
+        activities = actividadDAOJpa.buscaTodos();
         return activities;
     }
     public void apuntarse() {
