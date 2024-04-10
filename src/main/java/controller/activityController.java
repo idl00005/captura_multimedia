@@ -1,6 +1,6 @@
 package controller;
 
-import com.example.g116.qualifiers.DAOJpa;
+import com.example.g116.qualifiers.DAOJpaActividad;
 import jakarta.el.MethodExpression;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
@@ -14,7 +14,7 @@ import java.util.List;
 @Named("activityController")
 @ViewScoped
 public class activityController implements Serializable {
-    @Inject @DAOJpa
+    @Inject @DAOJpaActividad
     private ActividadDAOJpa actividadDAOJpa;
 
     private List<Actividad> activities;

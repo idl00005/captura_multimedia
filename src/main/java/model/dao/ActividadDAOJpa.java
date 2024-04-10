@@ -5,9 +5,8 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import jakarta.ws.rs.Produces;
 import model.validator.Actividad;
-import com.example.g116.qualifiers.DAOJpa;
+import com.example.g116.qualifiers.DAOJpaActividad;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.logging.Logger;
 
 
 @RequestScoped
-@DAOJpa
+@DAOJpaActividad
 @Transactional
 public class ActividadDAOJpa implements ActividadDAO{
 

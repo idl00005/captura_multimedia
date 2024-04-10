@@ -1,5 +1,7 @@
 package controller;
-
+import com.example.g116.qualifiers.DAOJpaUser;
+import jakarta.inject.Inject;
+import model.dao.UserDAOJpa;
 import model.validator.User;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
@@ -17,6 +19,9 @@ import java.util.Set;
 @Named("cuentaController")
 @ViewScoped
 public class cuentaController implements Serializable {
+    @Inject @DAOJpaUser
+    private UserDAOJpa userDAOJpa;
+
     private User user;
 
     public cuentaController() {
