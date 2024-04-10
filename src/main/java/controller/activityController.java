@@ -1,6 +1,7 @@
 package controller;
 
 import com.example.g116.qualifiers.DAOJpa;
+import jakarta.el.MethodExpression;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -8,9 +9,6 @@ import model.dao.ActividadDAOJpa;
 import model.validator.Actividad;
 
 import java.io.Serializable;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Named("activityController")
@@ -79,10 +77,6 @@ public class activityController implements Serializable {
         activities = actividadDAOJpa.buscaTodos();
         return activities;
     }
-
-    public void updateActivities() {
-        activities = busquedaPorDias(selectedDay);
-    }
     public void apuntarse() {
     }
 
@@ -106,6 +100,12 @@ public class activityController implements Serializable {
             }
         }
     }
+
+    public MethodExpression getUpdateActivities() {
+        return null;
+
+    }
+
 
 
 /*

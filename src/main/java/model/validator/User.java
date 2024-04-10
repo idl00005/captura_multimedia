@@ -1,13 +1,18 @@
 package model.validator;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import java.util.Date;
-
+@Entity
+@Table(name="users")
 public class User {
+    @Id
     private int id;
     private String nombre_usuario;
     private String rol;
@@ -42,6 +47,10 @@ public class User {
         this.direccion = direccion;
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public User() {
+
     }
 
     public String getNombre_usuario() {
