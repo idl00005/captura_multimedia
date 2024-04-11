@@ -12,8 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.dao.UserDAOJpa;
 import model.validator.User;
-
-
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;

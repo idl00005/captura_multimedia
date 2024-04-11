@@ -38,4 +38,16 @@ public class UserDAOJpa implements UserDAO{
             logger.log(Level.SEVERE,"No se pueden actualizar los usuarios",e);
         }
     }
+
+    public void nuevoUsuario(User user){
+        try{
+            em.persist(user);
+        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se pueden añadir los usuarios",e);
+        }
+    }
+
+    public int size(){
+        return buscaTodos().size();
+    }
 }
