@@ -16,51 +16,55 @@
 <ui:composition template="/WEB-INF/templates/template.xhtml">
 
     <ui:define name="content">
-        <div class="px-4 py-5 my-0 text-center">
-            <h1 class="display-5 fw-bold text-body-emphasis">Nuestras clases</h1>
-            <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4">Las clases en grupo de PowerFIT incluyen varios tipos de actividades y diferentes métodos de ejercicio, permitiendo alcanzar una amplia variedad de objetivos diferentes.</p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center">
-                    <span class="align-middle" style="margin-right: 10px">Busca las clases por día:</span>
-                    <h:selectOneMenu class="form-select w-auto p-2">
-                        <f:selectItem itemValue="Lunes" itemLabel="Lunes" />
-                        <f:selectItem itemValue="Martes" itemLabel="Martes" />
-                        <f:selectItem itemValue="Miercoles" itemLabel="Miercoles" />
-                        <f:selectItem itemValue="Jueves" itemLabel="Jueves" />
-                        <f:selectItem itemValue="Viernes" itemLabel="Viernes" />
-                    </h:selectOneMenu>
+        <h:form>
+            <div class="px-4 py-5 my-0 text-center">
+                <h1 class="display-5 fw-bold text-body-emphasis">Nuestras clases</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">Las clases en grupo de PowerFIT incluyen varios tipos de actividades y diferentes métodos de ejercicio, permitiendo alcanzar una amplia variedad de objetivos diferentes.</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center">
+                        <span class="align-middle" style="margin-right: 10px">Busca las clases por día:</span>
+                        <h:selectOneMenu class="form-select w-auto p-2">
+                            <f:selectItem itemValue="Lunes" itemLabel="Lunes" />
+                            <f:selectItem itemValue="Martes" itemLabel="Martes" />
+                            <f:selectItem itemValue="Miercoles" itemLabel="Miercoles" />
+                            <f:selectItem itemValue="Jueves" itemLabel="Jueves" />
+                            <f:selectItem itemValue="Viernes" itemLabel="Viernes" />
+                        </h:selectOneMenu>
 
-                    <span class="align-middle" style="margin-left: 40px; margin-right: 10px">Busca una clase:</span>
-                    <input class="form-control w-25 " type="search" id="buscaClase" name="BuscaClase"/>
-                    <input class="btn btn-warning" type="button" value="Buscar"/>
+                        <span class="align-middle" style="margin-left: 40px; margin-right: 10px">Busca una clase:</span>
+                        <h:inputText id="searchName" value="#{activityController.searchName}">
+                            <f:ajax event="keyup" execute="@this" render="datatable" />
+                        </h:inputText>
+                        <h:commandButton value="Buscar" action="#{activityController.buscarPorNombre(activityController.searchName)}">
+                            <f:ajax execute="@this" render="datatable" />
+                        </h:commandButton>
+                    </div>
                 </div>
             </div>
-        </div>
-        <h:form>
-            <p:dataTable var="activity" value="#{activityController.activities}" class="table" style="width: 95%; margin: auto">
-                <p:column headerText="Nombre" styleClass="text-center" style="width: 19% ;">
+            <h:dataTable id="datatable" var="activity" value="#{activityController.activities}" class="table" style="width: 95%; margin: auto">
+                <h:column headerText="Nombre" styleClass="text-center" style="width: 19% ;">
                     <h2>#{activity.nombre}</h2>
-                </p:column>
-                <p:column headerText="Capacidad" styleClass="text-center" style="width: 19% ;">
+                </h:column>
+                <h:column headerText="Capacidad" styleClass="text-center" style="width: 19% ;">
                     <h:commandButton value="Consultar capacidad" styleClass="btn btn-primary" action="#{activityController.recupera(activity.id)}">
                         <f:ajax render="detalle" execute="@this" />
                     </h:commandButton>
-                </p:column>
-                <p:column headerText="Fecha" styleClass="text-center" style="width: 19% ;">
+                </h:column>
+                <h:column headerText="Fecha" styleClass="text-center" style="width: 19% ;">
                     <h:outputText value="#{activity.fecha}">
                         <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
-                </p:column>
-                <p:column headerText="Hora" styleClass="text-center" style="width: 19% ;">
+                </h:column>
+                <h:column headerText="Hora" styleClass="text-center" style="width: 19% ;">
                     <p class="text-center"> #{activity.fecha.hours}:#{activity.fecha.minutes}</p>
-                </p:column>
-                <p:column headerText="Más información" styleClass="text-center" style="width: 19% ;">
+                </h:column>
+                <h:column headerText="Más información" styleClass="text-center" style="width: 19% ;">
                     <a href="detalle.xhtml?id=#{activity.id}" class="btn btn-primary">Más información</a>
-                </p:column>
-                <p:column headerText="Apuntarme" styleClass="text-center" style="width: 19% ;">
+                </h:column>
+                <h:column headerText="Apuntarme" styleClass="text-center" style="width: 19% ;">
                     <h:commandLink value="Apuntarme" action="#{activityController.addActivity(activity)}" styleClass="btn btn-warning"/>
-                </p:column>
-            </p:dataTable>
+                </h:column>
+            </h:dataTable>
         </h:form>
 
         <div style="text-align: center; padding: 20px;">

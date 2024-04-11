@@ -14,7 +14,7 @@
     <!-- Session configuration -->
     <session-config>
         <session-timeout>
-            30 <!-- Time in minutes to expire after the last request -->
+             30 <!-- Time in minutes to expire after the last request -->
         </session-timeout>
         <cookie-config>
             <http-only>true</http-only> <!-- Prevent client side scripting from accessing/manipulating session cookie. -->

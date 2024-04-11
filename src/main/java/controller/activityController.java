@@ -9,6 +9,7 @@ import model.dao.ActividadDAOJpa;
 import model.validator.Actividad;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Named("activityController")
@@ -20,14 +21,19 @@ public class activityController implements Serializable {
     private List<Actividad> activities;
     private Actividad actividad;
     private String selectedDay="Lunes";
+    private String searchName;
 
+    public String getSearchName() {
+        return searchName;
+    }
 
-
+    public void setSearchName(String searchName) {
+        this.searchName = searchName;
+    }
 
     private int idActividad=0;
 
     public activityController() {
-
     }
 
     public List<Actividad> busquedaPorDias(String dias){
@@ -48,6 +54,10 @@ public class activityController implements Serializable {
                 actividad = acti;
             }
         }
+    }
+    public void buscarPorNombre(String nombre){
+        activities.clear();
+        activities = actividadDAOJpa.buscarPorNombre(nombre);
     }
 
     public void reset(){
@@ -74,7 +84,9 @@ public class activityController implements Serializable {
 
 
     public List<Actividad> getActivities() {
-        activities = actividadDAOJpa.buscaTodos();
+        if(activities==null){
+            activities = actividadDAOJpa.buscaTodos();
+        }
         return activities;
     }
     public void apuntarse() {
