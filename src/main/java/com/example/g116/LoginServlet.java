@@ -1,16 +1,28 @@
 package com.example.g116;
 
-import java.io.*;
-import java.util.logging.Logger;
-
+import com.example.g116.qualifiers.DAOJpaUser;
+import controller.cuentaController;
+import jakarta.inject.Inject;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import model.dao.UserDAOJpa;
 import model.validator.User;
+
+
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Logger;
 
 @WebServlet(name = "loginServlet", value = "/login-servlet")
 public class LoginServlet extends HttpServlet {
+    @Inject @DAOJpaUser
+    private UserDAOJpa userDAOJpa;
+
     private final Logger log = Logger.getLogger( LoginServlet.class.getName() );
 
     @Override
@@ -21,17 +33,20 @@ public class LoginServlet extends HttpServlet {
         String identifier = request.getParameter("identifier");
         String password = request.getParameter("password");
 
-        // Obtén el objeto UsuariosRegistrados
-        UsuariosRegistrados usuarios = AppConfig.getInstance().getUsuariosRegistrados();
+            List<User> usuarios = userDAOJpa.buscaTodos();
+            User userLogin = null;
+            for (User usuario : usuarios) {
+                if ( (usuario.getNombre_usuario().equals(identifier) || usuario.getEmail().equals(identifier) )
+                        && usuario.getClave().equals(password)){
+                    userLogin = usuario;
+                }
+            }
 
-        // Ahora puedes usar el objeto usuarios para verificar las credenciales
-        User usuario = usuarios.comprobar_Usuario_Registrado(identifier, password);
-
-        if (usuario!=null) {
+        if (userLogin!=null) {
             // Si las credenciales son correctas, establece un atributo en la sesión y redirige al usuario
             log.info("Credenciales correctas, redirigiendo al usuario a index.jsp");
             HttpSession session = request.getSession();
-            session.setAttribute("loggedInUser", usuario);
+            session.setAttribute("loggedInUser", userLogin);
             response.sendRedirect("index.jsp");
         } else {
             log.warning("Credenciales incorrectas, redirigiendo al usuario a login.jsp");

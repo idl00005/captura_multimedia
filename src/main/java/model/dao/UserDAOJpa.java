@@ -30,4 +30,12 @@ public class UserDAOJpa implements UserDAO{
         }
         return l;
     }
+
+    public void update(User user){
+        try{
+            em.merge(user);
+        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se pueden actualizar los usuarios",e);
+        }
+    }
 }

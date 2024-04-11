@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UserDAO {
      public List<User> buscaTodos();
+     public void update(User user);
 }

@@ -1,8 +1,11 @@
 package com.example.g116;
 
+import com.example.g116.qualifiers.DAOJpaActividad;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.annotation.FacesConfig;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import model.dao.ActividadDAOJpa;
 import model.validator.User;
 
 import java.util.Date;
@@ -12,15 +15,14 @@ import java.util.logging.Logger;
 @ApplicationScoped
 @Named("app")
 public class AppConfig {
+    @Inject @DAOJpaActividad
+    private ActividadDAOJpa actividadDAOJpa;
     private static AppConfig instance = null;
     private UsuariosRegistrados usuarios= new UsuariosRegistrados();
     private final String message = "Welcome DAW!";
     private final Logger log=Logger.getLogger(AppConfig.class.getName());
     public AppConfig() {
         log.info("Application started");
-        usuarios.anadir_Usuario(new User(1, "ignacio", "admin", "Ignacio",
-                "Delgado Lobelle", "idl00005@red.ujaen.es", "1234", "12345678A", "23071",
-                "Jaén","Calle Patrocinio de Biedma 2", "684331639", new Date("2001/07/15")));
     }
     public static AppConfig getInstance() {
         if (instance == null) {

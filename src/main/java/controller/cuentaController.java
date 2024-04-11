@@ -1,5 +1,6 @@
 package controller;
 import com.example.g116.qualifiers.DAOJpaUser;
+import jakarta.annotation.PostConstruct;
 import jakarta.inject.Inject;
 import model.dao.UserDAOJpa;
 import model.validator.User;
@@ -14,6 +15,7 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Named("cuentaController")
@@ -33,6 +35,8 @@ public class cuentaController implements Serializable {
         return user;
     }
 
+
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -48,6 +52,10 @@ public class cuentaController implements Serializable {
             }
             return null;
         }
+
+        // Actualiza los datos del usuario en la base de datos
+        userDAOJpa.update(user);
+
         return "cuenta?faces-redirect=true";
     }
 }
