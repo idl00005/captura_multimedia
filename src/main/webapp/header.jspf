@@ -22,13 +22,12 @@
         <c:choose>
             <c:when test="${not empty sessionScope.loggedInUser}">
                 <form action="${pageContext.request.contextPath}/logout" method="post">
-                    <input type="submit" value="Cerrar sesión" class="btn btn-warning btn-limited-width"/>
+                    <li class="nav-item text-white"><a href="eligeSuscripcion.jsp" class="btn btn-warning" style="margin-right: 20px">Cerrar Sesión</a></li>
                 </form>
             </c:when>
             <c:otherwise>
-                <a href="eligeSuscripcion.jsp" class="btn btn-warning btn-limited-width">INSCRÍBETE</a>
+                <li class="nav-item text-white"><a href="eligeSuscripcion.jsp" class="btn btn-warning" style="margin-right: 20px">INSCRÍBETE</a></li>
             </c:otherwise>
         </c:choose>
     </ul>
 </header>
-

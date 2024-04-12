@@ -43,7 +43,7 @@ public class loginController implements Serializable {
             // Si las credenciales son correctas, establece un atributo en la sesión y redirige al usuario
             log.info("Credenciales correctas, redirigiendo al usuario a index.jsf");
             facesContext.getExternalContext().getSessionMap().put("loggedInUser", userLogin);
-            facesContext.getExternalContext().redirect("index.jsf");
+            facesContext.getExternalContext().redirect("index.jsp");
         } else {
             log.warning("Credenciales incorrectas, redirigiendo al usuario a login.xhtml");
             // Si las credenciales no son correctas, envía un mensaje de error
