@@ -15,7 +15,10 @@ import org.glassfish.soteria.identitystores.annotation.EmbeddedIdentityStoreDefi
 
 import java.util.Date;
 import java.util.logging.Logger;
-
+@EmbeddedIdentityStoreDefinition({
+        @Credentials(callerName = "admin", password = "secret1", groups = {"USER"}),
+        @Credentials(callerName = "user", password = "secret2", groups = {"USER"})
+})
 @FormAuthenticationMechanismDefinition(
         loginToContinue = @LoginToContinue(
                 loginPage = "/login.xhtml",
