@@ -44,7 +44,7 @@ public class inscribeController implements Serializable {
         }
 
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        ec.redirect(ec.getRequestContextPath() + "/login.jsp");
+        ec.redirect(ec.getRequestContextPath() + "/login.xhtml");
         return null;
     }
 

@@ -9,7 +9,6 @@ import model.dao.ActividadDAOJpa;
 import model.validator.Actividad;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Named("activityController")
@@ -112,27 +111,7 @@ public class activityController implements Serializable {
             }
         }
     }
-
     public MethodExpression getUpdateActivities() {
         return null;
-
     }
-
-
-
-/*
-    public List<Actividad> searchActivitiesByDay(String dayOfWeek) {
-
-        List<Actividad> result = new ArrayList<>();
-        for (Actividad activity : activities) {
-            if (activity.getFecha(). == dayOfWeek{
-                result.add(activity);
-            }
-        }
-        return result;
-
-
-    }
-
- */
 }

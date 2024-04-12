@@ -19,8 +19,16 @@
             </c:otherwise>
         </c:choose>
         <li class="nav-item text-white"><a href="#" class="nav-link text-white"></a></li>
-        <li class="nav-item text-white"><a href="eligeSuscripcion.jsp" class="btn btn-warning" style="margin-right: 20px">INSCRÍBETE</a></li>
-
+        <c:choose>
+            <c:when test="${not empty sessionScope.loggedInUser}">
+                <form action="${pageContext.request.contextPath}/logout" method="post">
+                    <input type="submit" value="Cerrar sesión" class="btn btn-warning btn-limited-width"/>
+                </form>
+            </c:when>
+            <c:otherwise>
+                <a href="eligeSuscripcion.jsp" class="btn btn-warning btn-limited-width">INSCRÍBETE</a>
+            </c:otherwise>
+        </c:choose>
     </ul>
 </header>
 

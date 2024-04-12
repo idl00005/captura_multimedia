@@ -1,4 +1,4 @@
-package com.example.g116;
+package controller;
 
 import com.example.g116.qualifiers.DAOJpaUser;
 import jakarta.inject.Inject;
@@ -45,7 +45,7 @@ public class loginController implements Serializable {
             facesContext.getExternalContext().getSessionMap().put("loggedInUser", userLogin);
             facesContext.getExternalContext().redirect("index.jsf");
         } else {
-            log.warning("Credenciales incorrectas, redirigiendo al usuario a login.jsf");
+            log.warning("Credenciales incorrectas, redirigiendo al usuario a login.xhtml");
             // Si las credenciales no son correctas, envía un mensaje de error
             facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Identificador o contraseña incorrectos", null));
         }
@@ -66,5 +66,12 @@ public class loginController implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public boolean isLoggedIn() {
+        return FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedInUser") != null;
+    }
+    public void logout() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        FacesContext.getCurrentInstance().getExternalContext().redirect("index.jsp");
     }
 }
