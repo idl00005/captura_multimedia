@@ -9,4 +9,6 @@ public interface UserDAO {
      public void update(User user);
      public void nuevoUsuario(User user);
      public int size();
+
+     public User findUserByUsername(String username);
 }
