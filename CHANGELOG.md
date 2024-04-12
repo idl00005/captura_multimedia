@@ -1,4 +1,15 @@
 # Changelog
+## [3.1] - 2024-04-12
+### Changed
+- Modificado login.jsp por login.xhtml, sustituido su servlet por el controlador.
+### Added
+- Añadida la funcionalidad de busqueda de actividades por nombre.[Ignacio Delgado Lobelle]
+- Añadido botón de cerrar sesión en la cabecerá cuando la sesión está iniciada.[Ignacio Delgado Lobelle]
+- Configuración de las entidades JPA y conexión de la aplicación web a una BD relacional. [Juan Manuel Arriaza Rey]
+- Configuración de la unidad de persistencia. [Juan Manuel Arriaza Rey]
+- Precarga de datos de prueba en las tablas de las bases de datos. [Juan Manuel Arriaza Rey]
+- Crear una implemetación de un DAO basada en JPA para la entidad Actividad y Usuario. [Juan Manuel Arriaza Rey]
+
 ## [2.1] - 2024-03-22
 ### Changed
 - Modificado el Formulario de inscripción por un JSF que se encargue de enviar los datos a un controlador, realizando la
