@@ -10,10 +10,7 @@
         <param-value>Development</param-value>
         <!-- Other values: Production, SystemTest, UnitTest -->
     </context-param>
-    <context-param>
-        <param-name/>
-        <param-value/>
-    </context-param>
+
 
     <!-- Session configuration -->
     <session-config>
@@ -29,7 +26,7 @@
 
     <!-- Default file in folder-->
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
 
     <data-source>

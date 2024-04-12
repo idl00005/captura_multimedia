@@ -35,15 +35,15 @@ public class LoginServlet extends HttpServlet {
 
         if (userLogin!=null && userLogin.getClave().equals(password)){
             // Si las credenciales son correctas, establece un atributo en la sesión y redirige al usuario
-            log.info("Credenciales correctas, redirigiendo al usuario a index.jsp");
+            log.info("Credenciales correctas, redirigiendo al usuario a index.xhtml");
             HttpSession session = request.getSession();
             session.setAttribute("loggedInUser", userLogin);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("index.xhtml");
         } else {
             log.warning("Credenciales incorrectas, redirigiendo al usuario a login.jsp");
             // Si las credenciales no son correctas, envía un mensaje de error
             request.setAttribute("errorMessage", "Identificador o contraseña incorrectos");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.xhtml");
             dispatcher.forward(request, response);
         }
     }

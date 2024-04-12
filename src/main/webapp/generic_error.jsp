@@ -13,7 +13,7 @@
 
 <h1>Error genérico</h1>
 <p>Lo sentimos, se ha generado un error</p>
-<a href="index.jsp">Volver al inicio</a>
+<a href="index.xhtml">Volver al inicio</a>
 
 <%@ include file="footer.jspf" %>
 
