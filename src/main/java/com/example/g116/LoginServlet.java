@@ -12,8 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.dao.UserDAOJpa;
 import model.validator.User;
-
-
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
@@ -33,16 +31,9 @@ public class LoginServlet extends HttpServlet {
         String identifier = request.getParameter("identifier");
         String password = request.getParameter("password");
 
-            List<User> usuarios = userDAOJpa.buscaTodos();
-            User userLogin = null;
-            for (User usuario : usuarios) {
-                if ( (usuario.getNombre_usuario().equals(identifier) || usuario.getEmail().equals(identifier) )
-                        && usuario.getClave().equals(password)){
-                    userLogin = usuario;
-                }
-            }
+        User userLogin = userDAOJpa.findUserByUsername(identifier);
 
-        if (userLogin!=null) {
+        if (userLogin!=null && userLogin.getClave().equals(password)){
             // Si las credenciales son correctas, establece un atributo en la sesión y redirige al usuario
             log.info("Credenciales correctas, redirigiendo al usuario a index.jsp");
             HttpSession session = request.getSession();

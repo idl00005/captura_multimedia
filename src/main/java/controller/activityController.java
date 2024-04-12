@@ -20,14 +20,19 @@ public class activityController implements Serializable {
     private List<Actividad> activities;
     private Actividad actividad;
     private String selectedDay="Lunes";
+    private String searchName;
 
+    public String getSearchName() {
+        return searchName;
+    }
 
-
+    public void setSearchName(String searchName) {
+        this.searchName = searchName;
+    }
 
     private int idActividad=0;
 
     public activityController() {
-
     }
 
     public List<Actividad> busquedaPorDias(String dias){
@@ -48,6 +53,10 @@ public class activityController implements Serializable {
                 actividad = acti;
             }
         }
+    }
+    public void buscarPorNombre(String nombre){
+        activities.clear();
+        activities = actividadDAOJpa.buscarPorNombre(nombre);
     }
 
     public void reset(){
@@ -74,7 +83,9 @@ public class activityController implements Serializable {
 
 
     public List<Actividad> getActivities() {
-        activities = actividadDAOJpa.buscaTodos();
+        if(activities==null){
+            activities = actividadDAOJpa.buscaTodos();
+        }
         return activities;
     }
     public void apuntarse() {
@@ -100,27 +111,7 @@ public class activityController implements Serializable {
             }
         }
     }
-
     public MethodExpression getUpdateActivities() {
         return null;
-
     }
-
-
-
-/*
-    public List<Actividad> searchActivitiesByDay(String dayOfWeek) {
-
-        List<Actividad> result = new ArrayList<>();
-        for (Actividad activity : activities) {
-            if (activity.getFecha(). == dayOfWeek{
-                result.add(activity);
-            }
-        }
-        return result;
-
-
-    }
-
- */
 }

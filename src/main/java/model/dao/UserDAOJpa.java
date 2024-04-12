@@ -38,4 +38,31 @@ public class UserDAOJpa implements UserDAO{
             logger.log(Level.SEVERE,"No se pueden actualizar los usuarios",e);
         }
     }
+
+    public void nuevoUsuario(User user){
+        try{
+            em.persist(user);
+        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se pueden añadir los usuarios",e);
+        }
+    }
+
+    public int size(){
+        return buscaTodos().size();
+    }
+
+    public User findUserByUsername(String username){
+        User user;
+        try{
+            user=em.createQuery("SELECT l FROM User l WHERE l.nombre = :username OR l.email = :username",User.class)
+                    .setParameter("username",username)
+                    .getSingleResult();
+        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se puede recuperar el usuario",e);
+            user=null;
+        }
+        return user;
+    };
+
+
 }

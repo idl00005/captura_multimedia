@@ -47,6 +47,18 @@ public class ActividadDAOJpa implements ActividadDAO{
         }
         return l;
     }
+    public List<Actividad> buscarPorNombre(String nombre){
+        List<Actividad> l;
+        try{
+            l = em.createQuery("SELECT l FROM Actividad l WHERE l.nombre LIKE :nombre", Actividad.class)
+                    .setParameter("nombre", "%" + nombre + "%")
+                    .getResultList();
+        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se pueden recuperar las actividades",e);
+            l=new ArrayList<>();
+        }
+        return l;
+    }
 
     public Actividad buscarPorId(int id){
         Actividad l = null;

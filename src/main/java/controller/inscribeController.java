@@ -7,6 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.example.g116.AppConfig;
+import com.example.g116.qualifiers.DAOJpaUser;
+import jakarta.inject.Inject;
+import model.dao.UserDAOJpa;
 import model.validator.User;
 import com.example.g116.UsuariosRegistrados;
 import jakarta.faces.context.ExternalContext;
@@ -17,6 +20,8 @@ import jakarta.inject.Named;
 @Named("inscribeController")
 @ViewScoped
 public class inscribeController implements Serializable {
+    @Inject @DAOJpaUser
+    private UserDAOJpa userDAOJpa;
     private String nombre;
     private String apellidos;
     private String dni;
@@ -29,22 +34,13 @@ public class inscribeController implements Serializable {
     private String codigoPostal;
 
     public String submit() throws IOException {
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        Date fechaNac = null;
-        try {
-            fechaNac = formato.parse(fechaNacimiento);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
-        UsuariosRegistrados usuariosRegistrados = AppConfig.getInstance().getUsuariosRegistrados();
-        if (usuariosRegistrados != null) {
-            User newUser = new User(usuariosRegistrados.usuarios.size()+1, nombre, "admin", nombre, apellidos, email, password, dni, codigoPostal, ciudad, direccion, telefono, fechaNac);
-            usuariosRegistrados.anadir_Usuario(newUser);
-        }
+        User newUser = new User(userDAOJpa.size()+1, nombre, "USER", nombre, apellidos, email, password, dni, codigoPostal, ciudad, direccion, telefono, new Date(fechaNacimiento));
+        userDAOJpa.nuevoUsuario(newUser);
+
 
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        ec.redirect(ec.getRequestContextPath() + "/login.jsp");
+        ec.redirect(ec.getRequestContextPath() + "/login.xhtml");
         return null;
     }
 

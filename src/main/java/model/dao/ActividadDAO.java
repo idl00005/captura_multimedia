@@ -9,4 +9,6 @@ public interface ActividadDAO {
     List<Actividad> activities = new ArrayList<>();
     public List<Actividad> buscaTodos();
     public void recupera(int activity);
+    public List<Actividad> buscarPorDia(String dias);
+    public List<Actividad> buscarPorNombre(String nombre);
 }

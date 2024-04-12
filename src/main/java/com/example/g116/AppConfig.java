@@ -5,12 +5,27 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.annotation.FacesConfig;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.security.enterprise.authentication.mechanism.http.BasicAuthenticationMechanismDefinition;
+import jakarta.security.enterprise.authentication.mechanism.http.FormAuthenticationMechanismDefinition;
+import jakarta.security.enterprise.authentication.mechanism.http.LoginToContinue;
 import model.dao.ActividadDAOJpa;
 import model.validator.User;
+import org.glassfish.soteria.identitystores.annotation.Credentials;
+import org.glassfish.soteria.identitystores.annotation.EmbeddedIdentityStoreDefinition;
 
 import java.util.Date;
 import java.util.logging.Logger;
-
+@EmbeddedIdentityStoreDefinition({
+        @Credentials(callerName = "admin", password = "secret1", groups = {"USER"}),
+        @Credentials(callerName = "user", password = "secret2", groups = {"USER"})
+})
+@FormAuthenticationMechanismDefinition(
+        loginToContinue = @LoginToContinue(
+                loginPage = "/login.xhtml",
+                errorPage = "/login.xhtml?error",
+                useForwardToLogin = false
+        )
+)
 @FacesConfig //enable JSF front-controller
 @ApplicationScoped
 @Named("app")
