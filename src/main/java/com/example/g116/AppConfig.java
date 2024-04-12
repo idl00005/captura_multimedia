@@ -5,6 +5,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.annotation.FacesConfig;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.security.enterprise.authentication.mechanism.http.BasicAuthenticationMechanismDefinition;
 import model.dao.ActividadDAOJpa;
 import model.validator.User;
 import org.glassfish.soteria.identitystores.annotation.Credentials;
@@ -17,6 +18,7 @@ import java.util.logging.Logger;
         @Credentials(callerName = "admin", password = "1234", groups = {"ADMINISTRADORES"}),
         @Credentials(callerName = "user", password = "1234", groups = {"USUARIOS"})
 })
+@BasicAuthenticationMechanismDefinition( realmName = "App Gimnasio" )
 @FacesConfig
 @ApplicationScoped
 @Named("app")
