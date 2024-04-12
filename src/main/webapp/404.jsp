@@ -13,7 +13,7 @@
 
 <h1>Error 404</h1>
 <p>Lo sentimos, la página que estás buscando no se encuentra.</p>
-<a href="index.jsp">Volver al inicio</a>
+<a href="index.xhtml">Volver al inicio</a>
 
 <%@ include file="footer.jspf" %>
 
