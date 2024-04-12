@@ -7,11 +7,17 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import model.dao.ActividadDAOJpa;
 import model.validator.User;
+import org.glassfish.soteria.identitystores.annotation.Credentials;
+import org.glassfish.soteria.identitystores.annotation.EmbeddedIdentityStoreDefinition;
 
 import java.util.Date;
 import java.util.logging.Logger;
 
-@FacesConfig //enable JSF front-controller
+@EmbeddedIdentityStoreDefinition({
+        @Credentials(callerName = "admin", password = "1234", groups = {"ADMINISTRADORES"}),
+        @Credentials(callerName = "user", password = "1234", groups = {"USUARIOS"})
+})
+@FacesConfig
 @ApplicationScoped
 @Named("app")
 public class AppConfig {
