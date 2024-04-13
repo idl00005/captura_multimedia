@@ -1,7 +1,9 @@
 # Changelog
 ## [3.1] - 2024-04-12
 ### Changed
-- Modificado login.jsp por login.xhtml, sustituido su servlet por el controlador.
+- Modificado login.jsp por login.xhtml, sustituido su servlet por el controlador. [Ignacio Delgado Lobelle]
+- Sustituido index.jsp por index.xhtml. [Ignacio Delgado Lobelle]
+- Sustituido eligeSuscripcion.jsp por eligeSuscripcion.xhtml. [Ignacio Delgado Lobelle]
 ### Added
 - Añadida la funcionalidad de busqueda de actividades por nombre.[Ignacio Delgado Lobelle]
 - Añadido botón de cerrar sesión en la cabecerá cuando la sesión está iniciada.[Ignacio Delgado Lobelle]
