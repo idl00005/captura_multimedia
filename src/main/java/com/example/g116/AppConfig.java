@@ -16,17 +16,10 @@ import org.glassfish.soteria.identitystores.annotation.EmbeddedIdentityStoreDefi
 import java.util.Date;
 import java.util.logging.Logger;
 @EmbeddedIdentityStoreDefinition({
-        @Credentials(callerName = "admin", password = "secret1", groups = {"USER"}),
-        @Credentials(callerName = "user", password = "secret2", groups = {"USER"})
+        @Credentials(callerName = "admin", password = "secret1", groups = {"ADMIN"}),
+        @Credentials(callerName = "user", password = "1234", groups = {"USER"})
 })
-@FormAuthenticationMechanismDefinition(
-        loginToContinue = @LoginToContinue(
-                loginPage = "/login.xhtml",
-                errorPage = "/login.xhtml?error",
-                useForwardToLogin = false
-        )
-)
-@FacesConfig //enable JSF front-controller
+@FacesConfig
 @ApplicationScoped
 @Named("app")
 public class AppConfig {

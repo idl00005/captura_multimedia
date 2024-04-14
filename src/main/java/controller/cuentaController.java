@@ -23,20 +23,14 @@ import java.util.Set;
 public class cuentaController implements Serializable {
     @Inject @DAOJpaUser
     private UserDAOJpa userDAOJpa;
-
     private User user;
-
     public cuentaController() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         user = (User) session.getAttribute("loggedInUser");
     }
-
     public User getUser() {
         return user;
     }
-
-
-
     public void setUser(User user) {
         this.user = user;
     }

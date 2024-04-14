@@ -53,6 +53,10 @@ public class User {
 
     }
 
+    public String getRol() {
+        return rol;
+    }
+
     public String getNombre_usuario() {
         return nombre_usuario;
     }

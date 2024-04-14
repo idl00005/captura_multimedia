@@ -11,6 +11,7 @@
 - Configuración de la unidad de persistencia. [Juan Manuel Arriaza Rey]
 - Precarga de datos de prueba en las tablas de las bases de datos. [Juan Manuel Arriaza Rey]
 - Crear una implemetación de un DAO basada en JPA para la entidad Actividad y Usuario. [Juan Manuel Arriaza Rey]
+- Restricción de acceso a cuenta.xhtml para usuarios que no hayan iniciado sesión. [Ignacio Delgado Lobelle]
 
 ## [2.1] - 2024-03-22
 ### Changed
