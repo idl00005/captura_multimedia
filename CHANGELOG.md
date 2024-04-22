@@ -4,6 +4,7 @@
 - Modificado login.jsp por login.xhtml, sustituido su servlet por el controlador. [Ignacio Delgado Lobelle]
 - Sustituido index.jsp por index.xhtml. [Ignacio Delgado Lobelle]
 - Sustituido eligeSuscripcion.jsp por eligeSuscripcion.xhtml. [Ignacio Delgado Lobelle]
+- Modificación de las clases Actvidad y Usuario para que se puedan persistir en una base de datos relacional. [Juan Manuel Arriaza Rey]
 ### Added
 - Añadida la funcionalidad de busqueda de actividades por nombre.[Ignacio Delgado Lobelle]
 - Añadido botón de cerrar sesión en la cabecerá cuando la sesión está iniciada.[Ignacio Delgado Lobelle]
@@ -12,6 +13,7 @@
 - Precarga de datos de prueba en las tablas de las bases de datos. [Juan Manuel Arriaza Rey]
 - Crear una implemetación de un DAO basada en JPA para la entidad Actividad y Usuario. [Juan Manuel Arriaza Rey]
 - Restricción de acceso a cuenta.xhtml para usuarios que no hayan iniciado sesión. [Ignacio Delgado Lobelle]
+- Creación de los archivos DAOJpaActividad y DAOJpaUsuario que implementan la interfaz DAOActividad y DAOUsuario respectivamente. [Juan Manuel Arriaza Rey]
 ### Deleted
 - Eliminado login.jsp.
 - Eliminado index.jsp.
