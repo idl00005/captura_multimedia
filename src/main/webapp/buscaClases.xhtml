@@ -23,12 +23,13 @@
                     <p class="lead mb-4">Las clases en grupo de PowerFIT incluyen varios tipos de actividades y diferentes métodos de ejercicio, permitiendo alcanzar una amplia variedad de objetivos diferentes.</p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center">
                         <span class="align-middle" style="margin-right: 10px">Busca las clases por día:</span>
-                        <h:selectOneMenu class="form-select w-auto p-2">
+                        <h:selectOneMenu class="form-select w-auto p-2" value="#{activityController.selectedDay}">
                             <f:selectItem itemValue="Lunes" itemLabel="Lunes" />
                             <f:selectItem itemValue="Martes" itemLabel="Martes" />
                             <f:selectItem itemValue="Miercoles" itemLabel="Miercoles" />
                             <f:selectItem itemValue="Jueves" itemLabel="Jueves" />
                             <f:selectItem itemValue="Viernes" itemLabel="Viernes" />
+                            <f:ajax listener="#{activityController.busquedaPorDias(activityController.selectedDay)}" render="datatable" />
                         </h:selectOneMenu>
 
                         <span class="align-middle" style="margin-left: 40px; margin-right: 10px">Busca una clase:</span>

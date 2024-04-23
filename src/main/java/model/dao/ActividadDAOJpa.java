@@ -35,18 +35,6 @@ public class ActividadDAOJpa implements ActividadDAO{
         }
         return l;
     }
-
-    public List<Actividad> buscarPorDia(String dias){
-        List<Actividad> l;
-        try{
-            l = em.createQuery("SELECT l FROM Actividad l WHERE l.diaSemana = :dias", Actividad.class)
-                    .setParameter("dias", dias)
-                    .getResultList();        }catch (Exception e){
-            logger.log(Level.SEVERE,"No se pueden recuperar las actividades",e);
-            l=new ArrayList<>();
-        }
-        return l;
-    }
     public List<Actividad> buscarPorNombre(String nombre){
         List<Actividad> listaActividades;
         try {
@@ -59,7 +47,18 @@ public class ActividadDAOJpa implements ActividadDAO{
         }
         return listaActividades;
     }
-
+    public List<Actividad> buscarPorDia(String dia) {
+        List<Actividad> actividades;
+        try {
+            actividades = em.createQuery("SELECT a FROM Actividad a WHERE a.diaSemana = :dia", Actividad.class)
+                    .setParameter("dia", dia)
+                    .getResultList();
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "No se pueden recuperar las actividades", e);
+            actividades = new ArrayList<>();
+        }
+        return actividades;
+    }
     public Actividad buscarPorId(int id){
         Actividad l = null;
         try{

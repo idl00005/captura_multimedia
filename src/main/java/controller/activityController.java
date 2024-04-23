@@ -19,7 +19,7 @@ public class activityController implements Serializable {
 
     private List<Actividad> activities;
     private Actividad actividad;
-    private String selectedDay="Lunes";
+    private String selectedDay= "Lunes";
     private String searchName;
 
     public String getSearchName() {
@@ -35,13 +35,13 @@ public class activityController implements Serializable {
     public activityController() {
     }
 
-    public List<Actividad> busquedaPorDias(String dias){
-        return actividadDAOJpa.buscarPorDia(dias);
+    public void busquedaPorDias(String dia){
+        activities.clear();
+        activities = actividadDAOJpa.buscarPorDia(dia);
     }
 
-    public Actividad buscarActividadPorId(){
+    public void buscarActividadPorId(){
         actividad = actividadDAOJpa.buscarPorId(idActividad);
-        return null;
     }
 
 
