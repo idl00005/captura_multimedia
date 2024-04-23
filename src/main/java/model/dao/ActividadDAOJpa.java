@@ -48,16 +48,16 @@ public class ActividadDAOJpa implements ActividadDAO{
         return l;
     }
     public List<Actividad> buscarPorNombre(String nombre){
-        List<Actividad> l;
-        try{
-            l = em.createQuery("SELECT l FROM Actividad l WHERE l.nombre LIKE :nombre", Actividad.class)
-                    .setParameter("nombre", "%" + nombre + "%")
+        List<Actividad> listaActividades;
+        try {
+            listaActividades = em.createQuery("SELECT a FROM Actividad a WHERE LOWER(a.nombre) LIKE LOWER(:nombre)", Actividad.class)
+                    .setParameter("nombre", "%" + nombre.toLowerCase() + "%")
                     .getResultList();
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.log(Level.SEVERE,"No se pueden recuperar las actividades",e);
-            l=new ArrayList<>();
+            listaActividades = new ArrayList<>();
         }
-        return l;
+        return listaActividades;
     }
 
     public Actividad buscarPorId(int id){

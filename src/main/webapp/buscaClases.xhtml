@@ -35,7 +35,7 @@
                         <h:inputText id="searchName" value="#{activityController.searchName}">
                             <f:ajax event="keyup" execute="@this" render="datatable" />
                         </h:inputText>
-                        <h:commandButton value="Buscar" action="#{activityController.buscarPorNombre(activityController.searchName)}">
+                        <h:commandButton value="Buscar" class="btn btn-primary" action="#{activityController.buscarPorNombre(activityController.searchName)}">
                             <f:ajax execute="@this" render="datatable" />
                         </h:commandButton>
                     </div>
