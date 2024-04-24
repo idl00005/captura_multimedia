@@ -13,4 +13,6 @@ public interface ActividadDAO {
     public List<Actividad> buscarPorNombre(String nombre);
 
     public void nuevaActividad(Actividad actividad);
+
+    public void borrarActividad(int id);
 }

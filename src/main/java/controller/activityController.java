@@ -164,6 +164,10 @@ public class activityController implements Serializable {
         ec.redirect(ec.getRequestContextPath() + "/buscaClases.xhtml");
         return null;
     }
+
+    public void borrarActividad(int id){
+        actividadDAOJpa.borrarActividad(id);
+    }
     public MethodExpression getUpdateActivities() {
         return null;
     }

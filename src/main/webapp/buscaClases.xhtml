@@ -66,6 +66,13 @@
                 <h:column headerText="Más información" styleClass="text-center" style="width: 19% ;">
                     <a href="detalle.xhtml?id=#{activity.id}" class="btn btn-primary">Más información</a>
                 </h:column>
+
+                <h:column headerText="Borrar Actividad" styleClass="text-center" style="width: 19% ;">
+                    <h:commandLink value="Borrar Actividad" action="#{activityController.borrarActividad(activity.id)}" rendered="#{loginController.checkAdmin()}" styleClass="btn btn-danger">
+                        <f:ajax execute="@this" render="datatable" />
+                    </h:commandLink>
+                </h:column>
+
                 <h:column headerText="Apuntarme" styleClass="text-center" style="width: 19% ;">
                     <h:commandLink value="Apuntarme" action="#{activityController.addActivity(activity)}" styleClass="btn btn-warning"/>
                 </h:column>

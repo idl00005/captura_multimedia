@@ -83,6 +83,15 @@ public class ActividadDAOJpa implements ActividadDAO{
             logger.log(Level.SEVERE,"No se pueden añadir las actividades",e);
         }
     }
+
+    public void borrarActividad(int id){
+        try{
+            Actividad l = em.find(Actividad.class, id);
+            em.remove(l);
+        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se pueden borrar las actividades",e);
+        }
+    }
     
 
     @Override
