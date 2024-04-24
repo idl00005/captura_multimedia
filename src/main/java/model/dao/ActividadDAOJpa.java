@@ -35,33 +35,33 @@ public class ActividadDAOJpa implements ActividadDAO{
         }
         return l;
     }
-
     public int size(){
         return buscaTodos().size();
     }
 
-    public List<Actividad> buscarPorDia(String dias){
-        List<Actividad> l;
-        try{
-            l = em.createQuery("SELECT l FROM Actividad l WHERE l.diaSemana = :dias", Actividad.class)
-                    .setParameter("dias", dias)
-                    .getResultList();        }catch (Exception e){
-            logger.log(Level.SEVERE,"No se pueden recuperar las actividades",e);
-            l=new ArrayList<>();
-        }
-        return l;
-    }
     public List<Actividad> buscarPorNombre(String nombre){
-        List<Actividad> l;
-        try{
-            l = em.createQuery("SELECT l FROM Actividad l WHERE l.nombre LIKE :nombre", Actividad.class)
-                    .setParameter("nombre", "%" + nombre + "%")
+        List<Actividad> listaActividades;
+        try {
+            listaActividades = em.createQuery("SELECT a FROM Actividad a WHERE LOWER(a.nombre) LIKE LOWER(:nombre)", Actividad.class)
+                    .setParameter("nombre", "%" + nombre.toLowerCase() + "%")
                     .getResultList();
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.log(Level.SEVERE,"No se pueden recuperar las actividades",e);
-            l=new ArrayList<>();
+            listaActividades = new ArrayList<>();
         }
-        return l;
+        return listaActividades;
+    }
+    public List<Actividad> buscarPorDia(String dia) {
+        List<Actividad> actividades;
+        try {
+            actividades = em.createQuery("SELECT a FROM Actividad a WHERE a.diaSemana = :dia", Actividad.class)
+                    .setParameter("dia", dia)
+                    .getResultList();
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "No se pueden recuperar las actividades", e);
+            actividades = new ArrayList<>();
+        }
+        return actividades;
     }
 
     public Actividad buscarPorId(int id){
@@ -92,7 +92,7 @@ public class ActividadDAOJpa implements ActividadDAO{
             logger.log(Level.SEVERE,"No se pueden borrar las actividades",e);
         }
     }
-    
+
 
     @Override
     public void recupera(int activity) {

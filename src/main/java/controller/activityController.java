@@ -9,6 +9,7 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import model.dao.ActividadDAO;
 import model.dao.ActividadDAOJpa;
+import model.dao.ActividadUsuarioDAOjpa;
 import model.validator.Actividad;
 import model.validator.User;
 
@@ -22,6 +23,8 @@ import java.util.List;
 public class activityController implements Serializable {
     @Inject @DAOJpaActividad
     private ActividadDAOJpa actividadDAOJpa;
+    @Inject @DAOJpaActividad
+    private ActividadUsuarioDAOjpa actividadUsuarioDAOjpa;
 
     private String nombre;
     private String fecha;
@@ -31,7 +34,7 @@ public class activityController implements Serializable {
 
     private List<Actividad> activities;
     private Actividad actividad;
-    private String selectedDay="Lunes";
+    private String selectedDay= "Lunes";
     private String searchName;
 
     public String getSearchName() {
@@ -47,13 +50,13 @@ public class activityController implements Serializable {
     public activityController() {
     }
 
-    public List<Actividad> busquedaPorDias(String dias){
-        return actividadDAOJpa.buscarPorDia(dias);
+    public void busquedaPorDias(String dia){
+        activities.clear();
+        activities = actividadDAOJpa.buscarPorDia(dia);
     }
 
-    public Actividad buscarActividadPorId(){
+    public void buscarActividadPorId(){
         actividad = actividadDAOJpa.buscarPorId(idActividad);
-        return null;
     }
 
 
@@ -170,5 +173,8 @@ public class activityController implements Serializable {
     }
     public MethodExpression getUpdateActivities() {
         return null;
+    }
+    public int getNApuntados( int id){
+        return actividadUsuarioDAOjpa.usuariosDeActividad(id).size();
     }
 }
