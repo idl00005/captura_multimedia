@@ -15,10 +15,6 @@ import org.glassfish.soteria.identitystores.annotation.EmbeddedIdentityStoreDefi
 
 import java.util.Date;
 import java.util.logging.Logger;
-@EmbeddedIdentityStoreDefinition({
-        @Credentials(callerName = "admin", password = "secret1", groups = {"ADMIN"}),
-        @Credentials(callerName = "user", password = "1234", groups = {"USER"})
-})
 @FacesConfig
 @ApplicationScoped
 @Named("app")

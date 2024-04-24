@@ -2,6 +2,7 @@ package model.dao;
 
 import com.example.g116.qualifiers.DAOJpaUser;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.context.FacesContext;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -63,6 +64,7 @@ public class UserDAOJpa implements UserDAO{
         }
         return user;
     };
+
 
 
 }

@@ -18,9 +18,10 @@
     <ui:define name="content">
         <h:form>
             <div class="px-4 py-5 my-0 text-center">
-                <h1 class="display-5 fw-bold text-body-emphasis">Nuestras clases</h1>
+                <h1 class="display-4 fw-bold text-body-emphasis">Nuestras clases</h1>
                 <div class="col-lg-6 mx-auto">
                     <p class="lead mb-4">Las clases en grupo de PowerFIT incluyen varios tipos de actividades y diferentes métodos de ejercicio, permitiendo alcanzar una amplia variedad de objetivos diferentes.</p>
+
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center">
                         <span class="align-middle" style="margin-right: 10px">Busca las clases por día:</span>
                         <h:selectOneMenu class="form-select w-auto p-2">
@@ -38,7 +39,11 @@
                         <h:commandButton value="Buscar" action="#{activityController.buscarPorNombre(activityController.searchName)}">
                             <f:ajax execute="@this" render="datatable" />
                         </h:commandButton>
+
+
                     </div>
+                    <h:commandButton value="Crear Actividad" class="btn btn-success" action="formularioActividad.xhtml" style="margin-top:40px" rendered="#{loginController.checkAdmin()}"></h:commandButton>
+
                 </div>
             </div>
             <h:dataTable id="datatable" var="activity" value="#{activityController.activities}" class="table" style="width: 95%; margin: auto">

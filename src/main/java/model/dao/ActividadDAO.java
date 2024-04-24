@@ -11,4 +11,6 @@ public interface ActividadDAO {
     public void recupera(int activity);
     public List<Actividad> buscarPorDia(String dias);
     public List<Actividad> buscarPorNombre(String nombre);
+
+    public void nuevaActividad(Actividad actividad);
 }

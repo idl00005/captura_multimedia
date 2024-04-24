@@ -11,9 +11,9 @@ public class Actividad {
     private String nombre;
     private Date fecha;
     private String diaSemana;
-    private String capacidad;
+    private int capacidad;
 
-    public Actividad(int id, String nombre, Date fecha, String diaSemana, String capacidad) {
+    public Actividad(int id, String nombre, Date fecha, String diaSemana, int capacidad) {
         this.id = id;
         this.nombre = nombre;
         this.fecha = fecha;
@@ -44,7 +44,7 @@ public class Actividad {
         return diaSemana;
     }
 
-    public String getCapacidad() {
+    public int getCapacidad() {
         return capacidad;
     }
 }

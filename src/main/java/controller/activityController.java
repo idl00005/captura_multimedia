@@ -2,13 +2,19 @@ package controller;
 
 import com.example.g116.qualifiers.DAOJpaActividad;
 import jakarta.el.MethodExpression;
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import model.dao.ActividadDAO;
 import model.dao.ActividadDAOJpa;
 import model.validator.Actividad;
+import model.validator.User;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Named("activityController")
@@ -16,6 +22,12 @@ import java.util.List;
 public class activityController implements Serializable {
     @Inject @DAOJpaActividad
     private ActividadDAOJpa actividadDAOJpa;
+
+    private String nombre;
+    private String fecha;
+    private String diaSemana;
+
+    private int capacidad;
 
     private List<Actividad> activities;
     private Actividad actividad;
@@ -110,6 +122,47 @@ public class activityController implements Serializable {
                 break;
             }
         }
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public String getDiaSemana() {
+        return diaSemana;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setDiaSemana(String diaSemana) {
+        this.diaSemana = diaSemana;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public String submit() throws IOException {
+        Actividad newActivity = new Actividad(actividadDAOJpa.size()+1, nombre, new Date(fecha), diaSemana, capacidad);
+        actividadDAOJpa.nuevaActividad(newActivity);
+
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        ec.redirect(ec.getRequestContextPath() + "/buscaClases.xhtml");
+        return null;
     }
     public MethodExpression getUpdateActivities() {
         return null;

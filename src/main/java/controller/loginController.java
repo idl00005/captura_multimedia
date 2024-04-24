@@ -85,4 +85,10 @@ public class loginController implements Serializable {
             facesContext.getExternalContext().redirect("login.xhtml");
         }
     }
+
+    public boolean checkAdmin(){
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        String role = (String) facesContext.getExternalContext().getSessionMap().get("role");
+        return role != null && role.equals("ADMIN");
+    }
 }

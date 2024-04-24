@@ -36,6 +36,10 @@ public class ActividadDAOJpa implements ActividadDAO{
         return l;
     }
 
+    public int size(){
+        return buscaTodos().size();
+    }
+
     public List<Actividad> buscarPorDia(String dias){
         List<Actividad> l;
         try{
@@ -70,6 +74,14 @@ public class ActividadDAOJpa implements ActividadDAO{
             logger.log(Level.SEVERE,"No se pueden recuperar las actividades",e);
         }
         return l;
+    }
+
+    public void nuevaActividad(Actividad actividad){
+        try{
+            em.persist(actividad);
+        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se pueden añadir las actividades",e);
+        }
     }
     
 

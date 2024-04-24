@@ -4,4 +4,4 @@ insert into Actividad(id,CAPACIDAD,DIASEMANA,FECHA,NOMBRE) values (3,'11','Marte
 insert into Actividad(id,CAPACIDAD,DIASEMANA,FECHA,NOMBRE) values (4,'6','Jueves','2022-03-12 18:40','Crossfit');
 
 insert into Users(ID,APELLIDOS,CIUDAD,CLAVE,CP,DIRECCION,DNI,EMAIL,FECHANACIMIENTO,NOMBRE,NOMBRE_USUARIO,ROL,TELEFONO) values(1,'Garcia','Madrid','1234','28080','Calle Mayor','12345678A','jperez@red.ujaen.es','1999-02-22','Juan','jmar0022','USER','123456789');
-insert into Users(ID,APELLIDOS,CIUDAD,CLAVE,CP,DIRECCION,DNI,EMAIL,FECHANACIMIENTO,NOMBRE,NOMBRE_USUARIO,ROL,TELEFONO) values(2,'Arriaza','Jaén','12345','23006','Calle Prueba','12345678A','jmar0022@red.ujaen.es','1998-12-17','Juanma','jmar0022','USER','123456789');
+insert into Users(ID,APELLIDOS,CIUDAD,CLAVE,CP,DIRECCION,DNI,EMAIL,FECHANACIMIENTO,NOMBRE,NOMBRE_USUARIO,ROL,TELEFONO) values(2,'Arriaza','Jaén','12345','23006','Calle Prueba','12345678A','jmar0022@red.ujaen.es','1998-12-17','Juanma','jmar0022','ADMIN','123456789');
