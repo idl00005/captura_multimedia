@@ -6,6 +6,7 @@ import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import model.dao.ActividadDAOJpa;
+import model.dao.ActividadUsuarioDAOjpa;
 import model.validator.Actividad;
 
 import java.io.Serializable;
@@ -16,6 +17,8 @@ import java.util.List;
 public class activityController implements Serializable {
     @Inject @DAOJpaActividad
     private ActividadDAOJpa actividadDAOJpa;
+    @Inject @DAOJpaActividad
+    private ActividadUsuarioDAOjpa actividadUsuarioDAOjpa;
 
     private List<Actividad> activities;
     private Actividad actividad;
@@ -113,5 +116,8 @@ public class activityController implements Serializable {
     }
     public MethodExpression getUpdateActivities() {
         return null;
+    }
+    public int getNApuntados( int id){
+        return actividadUsuarioDAOjpa.usuariosDeActividad(id).size();
     }
 }

@@ -74,7 +74,7 @@
                     <h:outputText value="Plazas disponibles para #{activityController.actividad.nombre} el
                 #{activityController.actividad.diaSemana} a las #{activityController.actividad.fecha.hours}:#{activityController.actividad.fecha.minutes}"/>
                     <br/>
-                    <h:commandLink value="#{activityController.actividad.capacidad-4}/#{activityController.actividad.capacidad}" styleClass="badge text-bg-primary rounded-pill badge-xl"/>
+                    <h:commandLink value="#{activityController.getNApuntados(activityController.actividad.id)}/#{activityController.actividad.capacidad}" styleClass="badge text-bg-primary rounded-pill badge-xl"/>
                     <br/><br/>
                     <h:commandButton value="Cerrar" action="#{activityController.reset()}" styleClass="btn btn-warning btn-sm" style="text-align: center"/>
                 </h:form>
