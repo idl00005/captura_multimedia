@@ -36,6 +36,8 @@ public class activityController implements Serializable {
     private Actividad actividad;
     private String selectedDay= "Lunes";
     private String searchName;
+    FacesContext context;
+    User loggedInUser;
 
     public String getSearchName() {
         return searchName;
@@ -48,6 +50,8 @@ public class activityController implements Serializable {
     private int idActividad=0;
 
     public activityController() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        User loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
     }
 
     public void busquedaPorDias(String dia){
@@ -102,8 +106,6 @@ public class activityController implements Serializable {
             activities = actividadDAOJpa.buscaTodos();
         }
         return activities;
-    }
-    public void apuntarse() {
     }
 
     public String getSelectedDay() {
@@ -176,5 +178,10 @@ public class activityController implements Serializable {
     }
     public int getNApuntados( int id){
         return actividadUsuarioDAOjpa.usuariosDeActividad(id).size();
+    }
+
+    public void apuntarse(int id_actividad){
+        recupera(id_actividad);
+        actividadUsuarioDAOjpa.apuntarUsuarioActividad(loggedInUser,actividad);
     }
 }

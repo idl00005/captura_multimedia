@@ -44,4 +44,11 @@ public class ActividadUsuarioDAOjpa {
         }
         return usuarios;
     }
+    public void apuntarUsuarioActividad(User usuario, Actividad actividad){
+        ActividadUsuario au = new ActividadUsuario();
+        au.setUsuario(usuario);
+        au.setActividad(actividad);
+
+        em.persist(au);
+    }
 }
