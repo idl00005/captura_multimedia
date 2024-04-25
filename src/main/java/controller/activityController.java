@@ -168,8 +168,10 @@ public class activityController implements Serializable {
         return null;
     }
 
-    public void borrarActividad(int id){
+    public void borrarActividad(int id) throws IOException {
         actividadDAOJpa.borrarActividad(id);
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        ec.redirect(ec.getRequestContextPath() + "/buscaClases.xhtml");
     }
     public MethodExpression getUpdateActivities() {
         return null;
