@@ -15,4 +15,5 @@ public interface ActividadDAO {
     public void nuevaActividad(Actividad actividad);
 
     public void borrarActividad(int id);
+
 }

@@ -77,7 +77,9 @@
                 </h:column>
 
                 <h:column headerText="Apuntarme" styleClass="text-center" style="width: 19% ;">
-                    <h:commandLink value="Apuntarme" action="#{activityController.apuntarse(activity.id)}" styleClass="btn btn-warning"/>
+                    <h:commandLink value="Apuntarme" action="#{activityController.apuntarse(activity.id)}" rendered="#{not activityController.estaApuntado(activity.id)}" styleClass="btn btn-warning"/>
+                    <h:commandLink value="Desapuntarme" action="#{activityController.desapuntarse(activity.id)}" rendered="#{activityController.estaApuntado(activity.id)}" styleClass="btn btn-danger"/>
+
                 </h:column>
             </h:dataTable>
         </h:form>

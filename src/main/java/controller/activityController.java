@@ -183,4 +183,18 @@ public class activityController implements Serializable {
         loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
         actividadUsuarioDAOjpa.apuntarUsuarioActividad(loggedInUser,actividad);
     }
+
+    public void desapuntarse(int id_actividad){
+        recupera(id_actividad);
+        context = FacesContext.getCurrentInstance();
+        loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
+        actividadUsuarioDAOjpa.desapuntarUsuarioActividad(loggedInUser,actividad);
+
+    }
+
+    public boolean estaApuntado(int id_actividad){
+        context = FacesContext.getCurrentInstance();
+        loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
+        return actividadUsuarioDAOjpa.estaApuntado(loggedInUser.getId(),id_actividad);
+    }
 }

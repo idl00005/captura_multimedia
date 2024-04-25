@@ -36,7 +36,15 @@ public class ActividadDAOJpa implements ActividadDAO{
         return l;
     }
     public int size(){
-        return buscaTodos().size();
+        Actividad actividad = null;
+        try {
+            actividad = em.createQuery("SELECT a FROM Actividad a ORDER BY a.id DESC", Actividad.class)
+                    .setMaxResults(1)
+                    .getSingleResult();
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "No se puede recuperar la última actividad insertada", e);
+        }
+        return actividad.getId();
     }
 
     public List<Actividad> buscarPorNombre(String nombre){
@@ -83,6 +91,8 @@ public class ActividadDAOJpa implements ActividadDAO{
             logger.log(Level.SEVERE,"No se pueden añadir las actividades",e);
         }
     }
+
+
 
     public void borrarActividad(int id){
         try{
