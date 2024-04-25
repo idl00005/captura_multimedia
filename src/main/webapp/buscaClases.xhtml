@@ -77,7 +77,7 @@
                 </h:column>
 
                 <h:column headerText="Apuntarme" styleClass="text-center" style="width: 19% ;">
-                    <h:commandLink value="Apuntarme" action="#{activityController.addActivity(activity)}" styleClass="btn btn-warning"/>
+                    <h:commandLink value="Apuntarme" action="#{activityController.apuntarse(activity.id)}" styleClass="btn btn-warning"/>
                 </h:column>
             </h:dataTable>
         </h:form>

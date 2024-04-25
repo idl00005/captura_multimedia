@@ -44,4 +44,21 @@ public class ActividadUsuarioDAOjpa {
         }
         return usuarios;
     }
+    public void apuntarUsuarioActividad(User usuario, Actividad actividad){
+
+        List<ActividadUsuario> actividadUsuarios = em.createQuery(
+                        "SELECT au FROM ActividadUsuario au WHERE au.usuario.id = :id_usuario AND au.actividad.id = :id_actividad",
+                        ActividadUsuario.class)
+                .setParameter("id_usuario", usuario.getId())
+                .setParameter("id_actividad", actividad.getId())
+                .getResultList();
+
+        if (actividadUsuarios.isEmpty()) {
+            ActividadUsuario au = new ActividadUsuario();
+            au.setUsuario(usuario);
+            au.setActividad(actividad);
+
+            em.persist(au);
+        }
+    }
 }

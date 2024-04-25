@@ -63,8 +63,15 @@ public class UserDAOJpa implements UserDAO{
             user=null;
         }
         return user;
-    };
-
-
-
+    }
+    public User findUserById(Long id){
+        User user;
+        try{
+            user = em.find(User.class, id);
+        }catch (Exception e){
+            logger.log(Level.SEVERE,"No se puede recuperar el usuario",e);
+            user = null;
+        }
+        return user;
+    }
 }

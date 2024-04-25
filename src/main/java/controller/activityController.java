@@ -10,6 +10,7 @@ import jakarta.inject.Named;
 import model.dao.ActividadDAO;
 import model.dao.ActividadDAOJpa;
 import model.dao.ActividadUsuarioDAOjpa;
+import model.dao.UserDAOJpa;
 import model.validator.Actividad;
 import model.validator.User;
 
@@ -25,7 +26,6 @@ public class activityController implements Serializable {
     private ActividadDAOJpa actividadDAOJpa;
     @Inject @DAOJpaActividad
     private ActividadUsuarioDAOjpa actividadUsuarioDAOjpa;
-
     private String nombre;
     private String fecha;
     private String diaSemana;
@@ -36,6 +36,8 @@ public class activityController implements Serializable {
     private Actividad actividad;
     private String selectedDay= "Lunes";
     private String searchName;
+    FacesContext context;
+    User loggedInUser;
 
     public String getSearchName() {
         return searchName;
@@ -46,9 +48,6 @@ public class activityController implements Serializable {
     }
 
     private int idActividad=0;
-
-    public activityController() {
-    }
 
     public void busquedaPorDias(String dia){
         activities.clear();
@@ -102,8 +101,6 @@ public class activityController implements Serializable {
             activities = actividadDAOJpa.buscaTodos();
         }
         return activities;
-    }
-    public void apuntarse() {
     }
 
     public String getSelectedDay() {
@@ -178,5 +175,12 @@ public class activityController implements Serializable {
     }
     public int getNApuntados( int id){
         return actividadUsuarioDAOjpa.usuariosDeActividad(id).size();
+    }
+
+    public void apuntarse(int id_actividad){
+        recupera(id_actividad);
+        context = FacesContext.getCurrentInstance();
+        loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
+        actividadUsuarioDAOjpa.apuntarUsuarioActividad(loggedInUser,actividad);
     }
 }

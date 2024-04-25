@@ -120,4 +120,8 @@ public class User {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    public int getId() {
+        return id;
+    }
 }
