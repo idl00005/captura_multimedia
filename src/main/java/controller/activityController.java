@@ -10,6 +10,7 @@ import jakarta.inject.Named;
 import model.dao.ActividadDAO;
 import model.dao.ActividadDAOJpa;
 import model.dao.ActividadUsuarioDAOjpa;
+import model.dao.UserDAOJpa;
 import model.validator.Actividad;
 import model.validator.User;
 
@@ -25,7 +26,6 @@ public class activityController implements Serializable {
     private ActividadDAOJpa actividadDAOJpa;
     @Inject @DAOJpaActividad
     private ActividadUsuarioDAOjpa actividadUsuarioDAOjpa;
-
     private String nombre;
     private String fecha;
     private String diaSemana;
@@ -48,11 +48,6 @@ public class activityController implements Serializable {
     }
 
     private int idActividad=0;
-
-    public activityController() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        User loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
-    }
 
     public void busquedaPorDias(String dia){
         activities.clear();
@@ -182,6 +177,8 @@ public class activityController implements Serializable {
 
     public void apuntarse(int id_actividad){
         recupera(id_actividad);
+        context = FacesContext.getCurrentInstance();
+        loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
         actividadUsuarioDAOjpa.apuntarUsuarioActividad(loggedInUser,actividad);
     }
 }
