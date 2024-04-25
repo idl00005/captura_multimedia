@@ -16,6 +16,7 @@ import model.validator.User;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class activityController implements Serializable {
     @Inject @DAOJpaActividad
     private ActividadUsuarioDAOjpa actividadUsuarioDAOjpa;
     private String nombre;
-    private String fecha;
+    private Date fecha;
     private String diaSemana;
 
     private int capacidad;
@@ -128,7 +129,7 @@ public class activityController implements Serializable {
         return nombre;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
@@ -144,8 +145,41 @@ public class activityController implements Serializable {
         this.nombre = nombre;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+
+        int dia = calendar.get(Calendar.DAY_OF_WEEK);
+
+        switch (dia) {
+            case Calendar.SUNDAY:
+                diaSemana = "Domingo";
+                break;
+            case Calendar.MONDAY:
+                diaSemana = "Lunes";
+                break;
+            case Calendar.TUESDAY:
+                diaSemana = "Martes";
+                break;
+            case Calendar.WEDNESDAY:
+                diaSemana = "Miércoles";
+                break;
+            case Calendar.THURSDAY:
+                diaSemana = "Jueves";
+                break;
+            case Calendar.FRIDAY:
+                diaSemana = "Viernes";
+                break;
+            case Calendar.SATURDAY:
+                diaSemana = "Sábado";
+                break;
+            default:
+                diaSemana = "Día no válido";
+                break;
+        }
+
     }
 
     public void setDiaSemana(String diaSemana) {
@@ -157,7 +191,7 @@ public class activityController implements Serializable {
     }
 
     public String submit() throws IOException {
-        Actividad newActivity = new Actividad(actividadDAOJpa.size()+1, nombre, new Date(fecha), diaSemana, capacidad);
+        Actividad newActivity = new Actividad(actividadDAOJpa.size()+1, nombre, fecha, diaSemana, capacidad);
         actividadDAOJpa.nuevaActividad(newActivity);
 
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
@@ -189,7 +223,6 @@ public class activityController implements Serializable {
         context = FacesContext.getCurrentInstance();
         loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
         actividadUsuarioDAOjpa.desapuntarUsuarioActividad(loggedInUser,actividad);
-
     }
 
     public boolean estaApuntado(int id_actividad){
