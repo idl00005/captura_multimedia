@@ -52,11 +52,11 @@
     <error-page>
         <!-- Page not found -->
         <error-code>404</error-code>
-        <location>/404.jsp</location>
+        <location>/404.xhtml</location>
     </error-page>
     <!-- Other unhandled error situations-->
     <error-page>
-        <location>/generic_error.jsp</location>
+        <location>/generic_error.xhtml</location>
     </error-page>
 
 </web-app>
