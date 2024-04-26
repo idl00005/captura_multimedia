@@ -6,7 +6,8 @@
 - Implementada funcionalidad para búsqueda de actividades por día de la semana. [Ignacio Delgado Lobelle]
 - Añadida funcionalidad para la creación de actividades. [Juan Manuel Arriaza Rey]
 - Añadido formularioAcividad.xhtml que permite crear una nueva actividad a usuarios de tipo administrador. [Juan Manuel Arriaza Rey y Ignacio Delgado Lobelle]
-- Implementada la funcionalidad que permite apuntarse y desapuntarse de actividades. [Ignacio Delgado Lobelle]
+- Implementada la funcionalidad que permite apuntarse a las actividades. [Ignacio Delgado Lobelle]
+- Implementada la funcionalidad que permite desapuntarse de las actividades. [Juan Manuel Arriaza Rey]
 - Añadida funcionalidad que permite a los usuarios de tipo administrador eliminar actividades. [Juan Manuel Arriaza Rey y Ignacio Delgado Lobelle]
 - Añadida a la base de datos la tabla ActividadUsuario que relaciona las tablas Actividad y Usuario, también se ha implementado su correspondiente DAOjpa. [Ignacio Delgado Lobelle]
 ### Deleted
