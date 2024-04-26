@@ -1,4 +1,16 @@
 # Changelog
+## [4.1] - 2024-04-26
+### Changed
+- Sustituidas páginas de error en formato jsp por jfs. [Ignacio Delgado Lobelle]
+### Added
+- Implementada funcionalidad para búsqueda de actividades por día de la semana. [Ignacio Delgado Lobelle]
+- Añadida funcionalidad para la creación de actividades. [Juan Manuel Arriaza Rey]
+- Añadido formularioAcividad.xhtml que permite crear una nueva actividad a usuarios de tipo administrador. [Juan Manuel Arriaza Rey y Ignacio Delgado Lobelle]
+- Implementada la funcionalidad que permite apuntarse y desapuntarse de actividades. [Ignacio Delgado Lobelle]
+- Añadida funcionalidad que permite a los usuarios de tipo administrador eliminar actividades. [Juan Manuel Arriaza Rey y Ignacio Delgado Lobelle]
+- Añadida a la base de datos la tabla ActividadUsuario que relaciona las tablas Actividad y Usuario, también se ha implementado su correspondiente DAOjpa. [Ignacio Delgado Lobelle]
+### Deleted
+- Eliminadas plantillas para vistas en formato jsp.
 ## [3.1] - 2024-04-12
 ### Changed
 - Modificado login.jsp por login.xhtml, sustituido su servlet por el controlador. [Ignacio Delgado Lobelle]
