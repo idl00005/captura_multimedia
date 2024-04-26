@@ -14,4 +14,5 @@ public interface ActividadUsuarioDAO {
     public void desapuntarUsuarioActividad(int id_usuario, int id_actividad);
 
     public boolean estaApuntado(int id_usuario, int id_actividad);
+    public void borrarApuntadosActividad(int id_actividad);
 }

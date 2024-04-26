@@ -18,7 +18,7 @@
 </f:metadata>
 <ui:composition template="/WEB-INF/templates/template.xhtml">
     <ui:define name="content">
-        <h:form>
+        <h:form id="formulario">
             <div class="px-4 py-5 my-0 text-center">
                 <h1 class="display-4 fw-bold text-body-emphasis">Nuestras clases</h1>
                 <div class="col-lg-6 mx-auto">
@@ -49,7 +49,7 @@
 
                 </div>
             </div>
-            <h:dataTable id="datatable" var="activity" value="#{activityController.activities}" class="table" style="width: 95%; margin: auto">
+            <h:dataTable styleClass="datatable" id="datatable" var="activity" value="#{activityController.activities}" class="table" style="width: 95%; margin: auto">
                 <h:column headerText="Nombre" styleClass="text-center" style="width: 19% ;">
                     <h2>#{activity.nombre}</h2>
                 </h:column>
@@ -71,15 +71,12 @@
                 </h:column>
 
                 <h:column headerText="Borrar Actividad" styleClass="text-center" style="width: 19% ;">
-                    <h:commandLink value="Borrar Actividad" action="#{activityController.borrarActividad(activity.id)}" rendered="#{loginController.checkAdmin()}" styleClass="btn btn-danger">
-                        <f:ajax execute="@this" render="datatable" />
-                    </h:commandLink>
+                    <h:commandLink value="Borrar Actividad" action="#{activityController.borrarActividad(activity.id)}" rendered="#{loginController.checkAdmin()}" styleClass="btn btn-danger" />
                 </h:column>
 
                 <h:column headerText="Apuntarme" styleClass="text-center" style="width: 19% ;">
-                    <h:commandLink value="Apuntarme" action="#{activityController.apuntarse(activity.id)}" rendered="#{not activityController.estaApuntado(activity.id)}" styleClass="btn btn-warning"/>
-                    <h:commandLink value="Desapuntarme" action="#{activityController.desapuntarse(activity.id)}" rendered="#{activityController.estaApuntado(activity.id)}" styleClass="btn btn-danger"/>
-
+                    <h:commandLink value="Apuntarme" action="#{activityController.apuntarse(activity.id)}" rendered="#{not activityController.estaApuntado(activity.id)}" styleClass="btn btn-warning" />
+                    <h:commandLink value="Desapuntarme" action="#{activityController.desapuntarse(activity.id)}" rendered="#{activityController.estaApuntado(activity.id)}" styleClass="btn btn-danger" />
                 </h:column>
             </h:dataTable>
         </h:form>

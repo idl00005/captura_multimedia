@@ -200,6 +200,7 @@ public class activityController implements Serializable {
     }
 
     public void borrarActividad(int id) throws IOException {
+        actividadUsuarioDAOjpa.borrarApuntadosActividad(id);
         actividadDAOJpa.borrarActividad(id);
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.redirect(ec.getRequestContextPath() + "/buscaClases.xhtml");
@@ -216,6 +217,7 @@ public class activityController implements Serializable {
         context = FacesContext.getCurrentInstance();
         loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
         actividadUsuarioDAOjpa.apuntarUsuarioActividad(loggedInUser,actividad);
+        buscarPorNombre("");
     }
 
     public void desapuntarse(int id_actividad){
@@ -223,6 +225,7 @@ public class activityController implements Serializable {
         context = FacesContext.getCurrentInstance();
         loggedInUser = (User) context.getExternalContext().getSessionMap().get("loggedInUser");
         actividadUsuarioDAOjpa.desapuntarUsuarioActividad(loggedInUser,actividad);
+        buscarPorNombre("");
     }
 
     public boolean estaApuntado(int id_actividad){

@@ -99,4 +99,20 @@ public class ActividadUsuarioDAOjpa {
         }
         return apuntado;
     }
+
+    public void borrarApuntadosActividad(int id_actividad){
+        try {
+            List<ActividadUsuario> actividadUsuarios = em.createQuery(
+                            "SELECT au FROM ActividadUsuario au WHERE au.actividad.id = :id_actividad",
+                            ActividadUsuario.class)
+                    .setParameter("id_actividad", id_actividad)
+                    .getResultList();
+
+            for (ActividadUsuario au : actividadUsuarios) {
+                em.remove(au);
+            }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "No se pueden borrar los usuarios apuntados a la actividad", e);
+        }
+    }
 }
