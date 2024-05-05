@@ -12,6 +12,13 @@
    <ui:define name="content">
       <div class="container" style="width: 50%;">
          <h2>Perfil de Usuario</h2>
+         <div class="form-group my-1">
+            <h:outputLabel for="imageUpload" value="Foto de pefil"/>
+            <h:inputFile id="imageUpload" styleClass="form-control" onchange="displayImage(this)"/>
+         </div>
+         <div class="form-group my-1">
+            <img id="profileImage" src="img/foto_perfil_por_defecto.webp" alt="Profile Image" style="width: 100px; height: 100px;"/>
+         </div>
          <h:form styleClass="form">
             <div class="form-group my-1">
                <h:outputLabel for="nombre" value="Nombre"/>
@@ -57,4 +64,33 @@
       </div>
    </ui:define>
 </ui:composition>
+<script type="text/javascript">
+   window.onload = function() {
+      function displayImage(input) {
+         if (input.files &amp;&amp; input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+               document.getElementById('profileImage').src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+         }
+      }
+
+      const profileImage = document.getElementById('profileImage');
+
+      profileImage.addEventListener('drop', (e) => {
+         e.stopPropagation();
+         e.preventDefault();
+
+         displayImage(e.dataTransfer.files);
+      });
+
+      profileImage.addEventListener('dragover', (e) => {
+         e.stopPropagation();
+         e.preventDefault();
+
+         e.dataTransfer.dropEffect = 'copy';
+      });
+   }
+</script>
 </html>
