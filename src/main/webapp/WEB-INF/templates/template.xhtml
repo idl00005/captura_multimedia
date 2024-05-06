@@ -43,6 +43,19 @@
             text-align: right;
          }
       </style>
+      <h:outputScript type="text/javascript">
+            function displayImage(input) {
+               if (input.files &amp;&amp; input.files[0]) {
+                  var reader = new FileReader();
+
+                  reader.onload = function(e) {
+                     document.getElementById('profileImage').src = e.target.result;
+                  }
+
+                  reader.readAsDataURL(input.files[0]); // convert to base64 string
+               }
+            }
+      </h:outputScript>
    </h:head>
 
    <body>
