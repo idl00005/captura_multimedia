@@ -17,10 +17,10 @@
             <h:inputFile id="imageUpload" styleClass="form-control" onchange="displayImage(this)"/>
          </div>
          <div class="form-group my-1">
-            <img id="profileImage" src="img/foto_perfil_por_defecto.webp" alt="Profile Image" style="width: 100px; height: 100px;"/>
+            <img id="profileImage" src="img/foto_perfil_por_defecto.webp" alt="profileImage" style="width: 100px; height: 100px;"/>
          </div>
-         <h:form styleClass="form">
-            <div class="form-group my-1">
+         <h:form enctype="multipart/form-data">
+         <div class="form-group my-1">
                <h:outputLabel for="nombre" value="Nombre"/>
                <h:inputText id="nombre" value="#{cuentaController.user.nombre}" readonly="true" styleClass="form-control"/>
             </div>
@@ -57,7 +57,8 @@
                <h:inputText id="email" value="#{cuentaController.user.email}" styleClass="form-control" required="true" requiredMessage="El campo no debe quedar vacio."/>
                <h:message for="email" escape="false" style="color: red"></h:message>
             </div>
-            <h:commandButton value="Actualizar" action="#{cuentaController.updateUser}" styleClass="btn btn-warning m-2"/>
+         <h:commandButton value="Actualizar" action="#{cuentaController.updateUser}" styleClass="btn btn-warning m-2">
+         </h:commandButton>
          </h:form>
          <hr/>
          <p><strong>Duración de la membresía:</strong> 1 año</p>
@@ -69,7 +70,7 @@
       function displayImage(input) {
          if (input.files &amp;&amp; input.files[0]) {
             var reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                document.getElementById('profileImage').src = e.target.result;
             }
             reader.readAsDataURL(input.files[0]);
