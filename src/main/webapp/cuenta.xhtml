@@ -25,6 +25,9 @@
                   reader.readAsDataURL(input.files[0]); // convert to base64 string
                }
             }
+
+            const supported = 'mediaDevices' in navigator;
+
          </h:outputScript>
       </h:head>
       <div class="container" style="width: 50%;">
@@ -36,6 +39,11 @@
             </div>
             <div class="form-group my-1">
                <img id="profileImage" src="img/foto_perfil_por_defecto.webp" alt="profileImage" style="width: 100px; height: 100px;"/>
+               <h:outputText escape="false" value="&lt;video id='player' style='display: none;'&gt;&lt;/video&gt;"/>
+
+               <h:outputText escape="false" value="&lt;canvas id='canvas' style='display: none; width: 100px; height: 100px;'&gt;&lt;/canvas&gt;"/>
+               <button class="btn btn-warning m-2" id="startCapture">Tomar imagen con la cámara</button>
+               <button class="btn btn-warning m-2" id="capture">Capture</button>
             </div>
          <div class="form-group my-1">
                <h:outputLabel for="nombre" value="Nombre"/>
@@ -77,6 +85,7 @@
          <h:commandButton value="Actualizar" action="#{cuentaController.updateUser}" styleClass="btn btn-warning m-2">
          </h:commandButton>
          </h:form>
+
          <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function() {
                var profileImage = document.getElementById('profileImage');
@@ -92,6 +101,61 @@
                   }
                   reader.readAsDataURL(file);
                }, false);
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+               const player = document.getElementById('player');
+               const canvas = document.getElementById('canvas');
+               const context = canvas.getContext('2d');
+               const captureButton = document.getElementById('capture');
+               const startCaptureButton = document.getElementById('startCapture');
+               const profileImage = document.getElementById('profileImage');
+
+               const constraints = {
+                  video: true,
+               };
+
+               //Ocultamos el botón de captura inicialmente
+               captureButton.style.display = 'none';
+
+               let stream; //
+
+               startCaptureButton.addEventListener('click', (event) => {
+                  event.preventDefault();
+
+                  navigator.mediaDevices.getUserMedia(constraints).then((mediaStream) => {
+                     player.srcObject = mediaStream;
+                     player.play();
+                     stream = mediaStream;
+                  });
+
+                  // Mostramos el elemento de video
+                  player.style.display = 'block';
+
+                  // Gestión del botón de captura, ocultando el de inicio de captura
+                  captureButton.style.display = 'block';
+                  startCaptureButton.style.display = 'none';
+               });
+
+               captureButton.addEventListener('click', (event) => {
+                  event.preventDefault();
+
+                  // Dibujamos el frame de video en el canvas
+                  context.drawImage(player, 0, 0, canvas.width, canvas.height);
+
+                  // Convertimos el canvas a una URL de datos y la establecemos como la fuente de profileImage
+                  profileImage.src = canvas.toDataURL();
+
+                  // Ocultamos nuevamente el video y el botón de captura
+                  player.style.display = 'none';
+                  captureButton.style.display = 'none';
+                  startCaptureButton.style.display = 'block';
+
+                  // Dejamos de usar la camara
+                  if (stream) {
+                     stream.getTracks().forEach(track => track.stop());
+                  }
+               });
             });
          </script>
 
