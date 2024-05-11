@@ -19,6 +19,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.6.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.glassfish.soteria</groupId>
             <artifactId>jakarta.security.enterprise</artifactId>
             <version>3.0.2</version>

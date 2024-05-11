@@ -11,27 +11,28 @@
 
 <ui:composition template="/WEB-INF/templates/template.xhtml">
    <ui:define name="content">
-      <head>
+      <h:head>
+         <h:outputScript library="webjars" name="jquery/3.6.0/jquery.min.js" target="head" />
          <h:outputScript type="text/javascript">
             function displayImage(input) {
                if (input.files &amp;&amp; input.files[0]) {
                   var reader = new FileReader();
 
                   reader.onload = function(e) {
-                     document.getElementById('profileImage').src = e.target.result;
+                     document.getElementById(&#39;profileImage&#39;).src = e.target.result;
                   }
 
                   reader.readAsDataURL(input.files[0]); // convert to base64 string
                }
             }
          </h:outputScript>
-      </head>
+      </h:head>
       <div class="container" style="width: 50%;">
-         <h:form enctype="multipart/form-data">
+         <h:form enctype="multipart/form-data" id="myForm">
          <h2>Perfil de Usuario</h2>
             <div class="form-group my-1">
                <h:outputLabel for="imageUpload" value="Foto de perfil"/>
-               <h:inputFile id="imageUpload" accept="image/*" styleClass="form-control" onchange="displayImage(this);"/>
+               <h:inputFile id="imageUpload" accept="image/*" styleClass="form-control" onchange="displayImage(this)" />
             </div>
             <div class="form-group my-1">
                <img id="profileImage" src="img/foto_perfil_por_defecto.webp" alt="profileImage" style="width: 100px; height: 100px;"/>
@@ -76,12 +77,30 @@
          <h:commandButton value="Actualizar" action="#{cuentaController.updateUser}" styleClass="btn btn-warning m-2">
          </h:commandButton>
          </h:form>
+         <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() {
+               var profileImage = document.getElementById('profileImage');
+               profileImage.addEventListener('dragover', function(e) {
+                  e.preventDefault();
+               }, false);
+               profileImage.addEventListener('drop', function(e) {
+                  e.preventDefault();
+                  var file = e.dataTransfer.files[0];
+                  var reader = new FileReader();
+                  reader.onload = function(e) {
+                     profileImage.src = e.target.result;
+                  }
+                  reader.readAsDataURL(file);
+               }, false);
+            });
+         </script>
+
          <hr/>
          <p><strong>Duración de la membresía:</strong> 1 año</p>
       </div>
+
    </ui:define>
 </ui:composition>
-
 </html>
 
 
