@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+   <title>Visualizador de imágenes</title>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+   <style>
+      body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      #form-container {
+         max-width: 600px;
+      }
+
+      #carousel-container {
+         max-width: 600px; /* Ajusta el ancho máximo según sea necesario */
+         margin: 0 auto; /* Centra el contenedor */
+      }
+      .carousel-item {
+         max-width: 100%; /* Las imágenes no superarán el tamaño del contenedor */
+         height: auto; /* Las imágenes mantienen su aspecto */
+      }
+   </style>
+</head>
+<body>
+<div id="form-container">
+   <h:form id="form" enctype="multipart/form-data">
+      <div class="container mt-5">
+         <h1 class="text-center mb-4">Visualizador de imágenes</h1>
+         <div class="text-center">
+            <label for="fileInput" class="btn btn-primary mb-3">Seleccionar imágenes</label>
+         </div>
+         <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-info mr-2" onclick="prevSlide()">Imagen Anterior</button>
+            <button type="button" class="btn btn-info" onclick="nextSlide()">Imagen Siguiente</button>
+         </div>
+         <input type="file" id="fileInput" multiple="multiple" accept="image/*" class="d-none" onchange="handleFileSelect(event)" />
+         <div id="carousel-container" class="position-relative overflow-hidden mt-3">
+            <div id="carousel" class="d-flex"></div>
+         </div>
+      </div>
+   </h:form>
+</div>
+
+
+<script>
+
+   let currentIndex = 0;
+   let fileList = null;
+
+   function handleFileSelect(event) {
+      fileList = event.target.files;
+      const carousel = document.getElementById('carousel');
+      carousel.innerHTML = '';
+
+      for (let i = 0; i &lt; fileList.length; i++) {
+         const file = fileList[i];
+         if (!file.type.match('image.*')) {
+            continue;
+         }
+
+         const reader = new FileReader();
+
+         reader.onload = function(e) {
+            const img = new Image();
+            img.src = e.target.result;
+            img.classList.add('carousel-item');
+            carousel.appendChild(img);
+
+            if (currentIndex === i) {
+               img.style.display = 'block';
+            } else {
+               img.style.display = 'none';
+            }
+         };
+
+         reader.readAsDataURL(file);
+      }
+
+      currentIndex = 0;
+      updateCarousel();
+   }
+
+   function prevSlide() {
+      const carousel = document.getElementById('carousel');
+      currentIndex = Math.max(currentIndex - 1, 0);
+      updateCarousel();
+   }
+
+   function nextSlide() {
+      const carousel = document.getElementById('carousel');
+      const numItems = carousel.children.length;
+      currentIndex = Math.min(currentIndex + 1, numItems - 1);
+      updateCarousel();
+   }
+
+   function updateCarousel() {
+      const carousel = document.getElementById('carousel');
+      const itemWidth = carousel.children[0].offsetWidth;
+      const offset = -currentIndex * itemWidth;
+      carousel.style.transform = `translateX(${offset}px)`;
+
+
+      for (let i = 0; i &lt; carousel.children.length; i++) {
+         if (i === currentIndex) {
+            carousel.children[i].style.display = 'block';
+         } else {
+            carousel.children[i].style.display = 'none';
+         }
+      }
+   }
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
