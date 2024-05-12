@@ -104,6 +104,30 @@
             });
 
             document.addEventListener('DOMContentLoaded', function() {
+               var hiddenTextArea = document.createElement('textarea');
+               hiddenTextArea.style.position = 'absolute';
+               hiddenTextArea.style.left = '-9999px';
+               document.body.appendChild(hiddenTextArea);
+
+               hiddenTextArea.addEventListener('paste', function(e) {
+                  e.preventDefault();
+                  var files = e.clipboardData.files;
+                  if (files.length > 0) {
+                     var file = files[0];
+                     if (file.type.startsWith('image/')) { // Ensure the file is an image
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                           document.getElementById('profileImage').src = e.target.result;
+                        }
+                        reader.readAsDataURL(file);
+                     }
+                  }
+               });
+
+               hiddenTextArea.focus();
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
                const player = document.getElementById('player');
                const canvas = document.getElementById('canvas');
                const context = canvas.getContext('2d');
