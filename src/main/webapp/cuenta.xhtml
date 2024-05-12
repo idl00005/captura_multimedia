@@ -158,7 +158,7 @@
 
                   // Gestión del botón de captura, ocultando el de inicio de captura
                   captureButton.style.display = 'block';
-                  startCaptureButton.style.display = 'none';
+                  startCaptureButton.style.visibility = 'hidden';
                });
 
                captureButton.addEventListener('click', (event) => {
@@ -173,7 +173,7 @@
                   // Ocultamos nuevamente el video y el botón de captura
                   player.style.display = 'none';
                   captureButton.style.display = 'none';
-                  startCaptureButton.style.display = 'block';
+                  startCaptureButton.style.visibility = 'visible';
 
                   // Dejamos de usar la camara
                   if (stream) {
