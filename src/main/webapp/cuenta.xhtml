@@ -44,6 +44,8 @@
                <h:outputText escape="false" value="&lt;canvas id='canvas' style='display: none; width: 100px; height: 100px;'&gt;&lt;/canvas&gt;"/>
                <button class="btn btn-warning m-2" id="startCapture">Tomar imagen con la cámara</button>
                <button class="btn btn-warning m-2" id="capture">Capture</button>
+               <button id="selectTextAreaButton" class="btn btn-warning m-2">Pegar (CTRL + V)</button>
+               <textarea id="target" cols="15" rows="3" style="position: absolute; left: -9999px;">Paste an image here</textarea>
             </div>
          <div class="form-group my-1">
                <h:outputLabel for="nombre" value="Nombre"/>
@@ -104,10 +106,8 @@
             });
 
             document.addEventListener('DOMContentLoaded', function() {
-               var hiddenTextArea = document.createElement('textarea');
-               hiddenTextArea.style.position = 'absolute';
-               hiddenTextArea.style.left = '-9999px';
-               document.body.appendChild(hiddenTextArea);
+               var selectTextAreaButton = document.getElementById('selectTextAreaButton');
+               var hiddenTextArea = document.getElementById('target');
 
                hiddenTextArea.addEventListener('paste', function(e) {
                   e.preventDefault();
@@ -124,8 +124,14 @@
                   }
                });
 
+               selectTextAreaButton.addEventListener('click', function() {
+                  event.preventDefault();
+                  hiddenTextArea.select();
+               });
+
                hiddenTextArea.focus();
             });
+
 
             document.addEventListener('DOMContentLoaded', function() {
                const player = document.getElementById('player');
