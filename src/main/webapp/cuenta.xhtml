@@ -15,18 +15,18 @@
          <h:outputScript library="webjars" name="jquery/3.6.0/jquery.min.js" target="head" />
          <h:outputScript type="text/javascript">
             function displayImage(input) {
+               //Comprobamos si se ha seleccionado un objeto para cargar
                if (input.files &amp;&amp; input.files[0]) {
+                  //El objeto FileReader leera el contenido del archivo
                   var reader = new FileReader();
-
+                  //Definimos la función que se ejecutará cuando se haya cargado el archivo
                   reader.onload = function(e) {
                      document.getElementById(&#39;profileImage&#39;).src = e.target.result;
                   }
-
-                  reader.readAsDataURL(input.files[0]); // convert to base64 string
+                  //Leemos el archivo como una cadena de datos
+                  reader.readAsDataURL(input.files[0]); // convierte el archivo en una cadena base64
                }
             }
-
-            const supported = 'mediaDevices' in navigator;
 
          </h:outputScript>
       </h:head>
@@ -45,7 +45,7 @@
                <button class="btn btn-warning m-2" id="startCapture">Tomar imagen con la cámara</button>
                <button class="btn btn-warning m-2" id="capture">Capture</button>
                <button id="selectTextAreaButton" class="btn btn-warning m-2">Pegar (CTRL + V)</button>
-               <textarea id="target" cols="15" rows="3" style="position: absolute; left: -9999px;">Paste an image here</textarea>
+               <textarea id="target" cols="15" rows="3" style="position: absolute; left: -9999px;"></textarea>
             </div>
          <div class="form-group my-1">
                <h:outputLabel for="nombre" value="Nombre"/>
@@ -91,17 +91,26 @@
          <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function() {
                var profileImage = document.getElementById('profileImage');
-               profileImage.addEventListener('dragover', function(e) {
-                  e.preventDefault();
-               }, false);
                profileImage.addEventListener('drop', function(e) {
+                  // Evita la propagación del evento
+                  e.stopPropagation();
+                  // Evita el comportamiento por defecto del navegador
                   e.preventDefault();
-                  var file = e.dataTransfer.files[0];
                   var reader = new FileReader();
+                  //Definimos la función que se ejecutará cuando se haya cargado el archivo
                   reader.onload = function(e) {
                      profileImage.src = e.target.result;
                   }
-                  reader.readAsDataURL(file);
+                  //Leemos el archivo como una cadena de datos
+                  reader.readAsDataURL(e.dataTransfer.files[0]);
+               }, false);
+               profileImage.addEventListener('dragover', function(e) {
+                  // Evita la propagación del evento
+                  e.stopPropagation();
+                  // Evita el comportamiento por defecto del navegador
+                  e.preventDefault();
+                  // Se muestra al usuario que se copiara la imagen
+                  e.dataTransfer.dropEffect = "copy";
                }, false);
             });
 
@@ -110,15 +119,23 @@
                var hiddenTextArea = document.getElementById('target');
 
                hiddenTextArea.addEventListener('paste', function(e) {
+                  // Evita el comportamiento por defecto
                   e.preventDefault();
+                  // Obtiene los archivos del portapapeles
                   var files = e.clipboardData.files;
+                  // Comprueba si hay archivos
                   if (files.length > 0) {
+                     // Obtiene el primer archivo
                      var file = files[0];
-                     if (file.type.startsWith('image/')) { // Ensure the file is an image
+                     // Comprueba si es una imagen
+                     if (file.type.startsWith('image/')) {
+                        // Crea un objeto FileReader para leer el archivo
                         var reader = new FileReader();
+                        // Define la función que se ejecutará cuando se haya cargado el archivo
                         reader.onload = function(e) {
                            document.getElementById('profileImage').src = e.target.result;
                         }
+                        // Lee el archivo como una cadena de datos
                         reader.readAsDataURL(file);
                      }
                   }
