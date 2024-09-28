@@ -1,4 +1,11 @@
 # Changelog
+## [5.1] - 2024-05-11
+### Added
+- Añadido javascript para validación del formulario de cuenta.xhtml. [Juan Manuel Arriaza Rey]
+- Creación de un servicio web REST con JAX-RS. [Ignacio Delgado Lobelle]
+- Añadida la clase ActividadResource que implementa las funcionalidades de la entidad actividad. [Juan Manuel Arriaza Rey]
+- Añadida la clase UserResource que implementa las funcionalidades de la entidad usuario. [Ignacio Delgado Lobelle]
+- Configuradas las vistas para llamar a UserResource y ActividadResource en lugar de a los DAO. [Ignacio Delgado Lobelle y Juan Manuel Arriaza Rey]
 ## [4.1] - 2024-04-26
 ### Changed
 - Sustituidas páginas de error en formato jsp por jfs. [Ignacio Delgado Lobelle]

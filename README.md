@@ -29,15 +29,17 @@ a sus necesidades entre tres tipos de subscripciones.
 Arriaza Rey]
 
 ![](./storyboard/entidad-relacion.png)
-## StoryBoard
+## Resultado final del proyecto
 - Página de inicio
-  ![](./storyboard/Pagina_inicio.jpg)
+  ![](./storyboard/clases.PNG)
 - Página de login
-  ![](./storyboard/login.jpeg)
+  ![](./storyboard/login.PNG)
 - Elección de suscripción
-![](./storyboard/elegir_suscripcion.jpg)
+![](./storyboard/inscripcion.PNG)
 - Formulario de inscripción
-  ![](./storyboard/formulario_inscripcion.jpeg)
+  ![](./storyboard/formularioInscripcion.PNG)
 - Buscador de clases
-![](./storyboard/Busca_Clases.jpg)
+![](./storyboard/clases.PNG)
+- Perfil del usuario
+  ![](./storyboard/perfil.PNG)
 
