@@ -31,7 +31,7 @@ Arriaza Rey]
 ![](./storyboard/entidad-relacion.png)
 ## Resultado final del proyecto
 - Página de inicio
-  ![](./storyboard/clases.PNG)
+  ![](./storyboard/index.PNG)
 - Página de login
   ![](./storyboard/login.PNG)
 - Elección de suscripción
