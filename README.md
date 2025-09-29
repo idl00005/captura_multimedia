@@ -13,8 +13,15 @@ a sus necesidades entre tres tipos de subscripciones.
 - El usuario podrá inscribirse en las clases que desee [Juan Manuel Arriaza Rey]
 
 ## Construido con:
-- HTML - Diseño de estructuras
-- CSS - Estilos
+- **HTML** – Diseño de estructuras
+- **CSS** – Estilos
+- **JSF (JavaServer Faces)** – Framework de Java para la construcción de interfaces web basadas en componentes
+- **JPA (Jakarta Persistence API)** – Acceso y gestión de datos en la base de datos
+- **Patrón MVC (Model-View-Controller)** – La aplicación está organizada siguiendo este patrón:
+  - **Modelo (Model):** Representado por las entidades y DAOs, que gestionan la lógica de negocio y el acceso a la base de datos mediante JPA.  
+  - **Vista (View):** Implementada con páginas **XHTML de JSF**, que definen la interfaz de usuario y permiten enlazar directamente los formularios con los atributos de los beans.  
+  - **Controlador (Controller):** Desarrollado mediante *Managed Beans*, que contienen la lógica para procesar las acciones del usuario y coordinar la comunicación entre la vista y el modelo.  
+
 
 ## Miembros del equipo:
 - Juan Manuel Arriaza Rey
